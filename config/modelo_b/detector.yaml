@@ -1,0 +1,37 @@
+# Detector de presença: uma única classe ("animal").
+# Entrada 416 em vez de 640 porque o alvo é embarcado de baixo custo:
+# 416² são ~42% dos MACs de 640², e localizar um animal que ocupa ~47% do quadro
+# não precisa da resolução maior.
+model: yolov8n.pt
+data: ../../data/animals_agnostic/dataset_agnostic.yaml
+epochs: 40
+imgsz: 416
+# batch 4 e workers 0: a maquina de desenvolvimento tem 7.4GB de RAM compartilhados
+# com navegador/IDE, e batch 8 foi encerrado pelo OOM killer na epoca 6. E limitacao
+# de infraestrutura, nao do metodo.
+batch: 4
+patience: 15
+device: auto
+workers: 0
+seed: 42
+deterministic: true
+cache: false
+project: ../../runs/modelo_b
+name: presence_yolov8n_416
+exist_ok: false
+plots: true
+save: true
+save_period: 20
+
+# Aumentos geométricos moderados; a variação de cor fica no classificador,
+# que é onde a espécie é decidida.
+hsv_h: 0.015
+hsv_s: 0.50
+hsv_v: 0.40
+degrees: 5.0
+translate: 0.10
+scale: 0.40
+fliplr: 0.50
+flipud: 0.0
+mosaic: 0.60
+close_mosaic: 10

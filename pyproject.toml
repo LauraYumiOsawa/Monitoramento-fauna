@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=70", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "animal-monitor"
+version = "0.1.0"
+description = "MVP de visão computacional para monitoramento local de fauna brasileira"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Laura Yumi Osawa"}]
+dependencies = [
+  "numpy>=1.26,<3",
+  "opencv-python>=4.10,<5",
+  "onnxruntime>=1.20,<2",
+  "PyYAML>=6,<7",
+]
+
+[project.optional-dependencies]
+train = [
+  "ultralytics>=8.3,<9",
+  "onnx>=1.17,<2",
+  "onnxslim>=0.1.53,<1",
+]
+dev = [
+  "ruff>=0.9,<1",
+]
+# Modelo B: classificador de especie em dois estagios. Treino/exportacao apenas;
+# o alvo embarcado continua rodando so com ONNX Runtime, OpenCV e NumPy.
+modelo-b = [
+  "ultralytics>=8.3,<9",
+  "onnx>=1.17,<2",
+  "onnxslim>=0.1.53,<1",
+  "torch>=2.2",
+  "torchvision>=0.17",
+]
+
+[project.scripts]
+animal-monitor = "animal_monitor.cli:main"
+animal-monitor-b = "animal_monitor_b.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]

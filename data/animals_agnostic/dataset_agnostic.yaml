@@ -1,0 +1,8 @@
+# Gerado por animal-monitor-b prepare-data. Uma única classe de presença.
+path: /home/losawa/Área de trabalho/monitoramento-animais-tcc/monitoramento-animais/data/animals_agnostic
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: animal

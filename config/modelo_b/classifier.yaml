@@ -1,0 +1,38 @@
+# Classificador de espécie sobre recortes.
+#
+# MobileNetV2 foi escolhido por medição, não por ser o mais novo. Comparativo neste
+# dataset (acurácia nos 46 recortes de teste, FP32 -> INT8):
+#   mobilenet_v3_small  0.848 -> 0.587   (colapsa: hard-swish e squeeze-excite)
+#   mobilenet_v2        0.957 -> 0.957   (degradação zero)
+#   shufflenet_v2_x0_5  0.783 -> 0.783   (robusto, mas menos preciso)
+# Em embarcado de baixo custo o modelo roda em INT8, então a acurácia que importa é a
+# da coluna INT8. Alternativas aceitas: mobilenet_v3_small, mobilenet_v3_large,
+# shufflenet_v2_x0_5, shufflenet_v2_x1_0.
+crops_dir: ../../data/crops
+output_dir: ../../models/modelo_b
+backbone: mobilenet_v2
+input_size: 128
+
+batch_size: 32
+
+# Fase 1 (sonda linear): backbone congelado, só a cabeça aprende. Estabiliza a
+# cabeça aleatória sem destruir os pesos ImageNet com gradientes grandes.
+epochs_head: 12
+learning_rate_head: 0.0015
+
+# Fase 2 (ajuste fino): libera os blocos finais do backbone com taxa 10x menor.
+epochs_finetune: 28
+learning_rate_finetune: 0.00015
+unfreeze_from: 14
+
+weight_decay: 0.0001
+label_smoothing: 0.05
+patience: 12
+seed: 42
+
+# Amostragem inversamente proporcional à frequência da classe: a classe
+# "desconhecido" é mais numerosa que cada espécie e dominaria o gradiente.
+balanced_sampling: true
+
+# 0 = deixa o PyTorch decidir o número de threads.
+threads: 0

@@ -1,0 +1,51 @@
+# Execução do pipeline de dois estágios.
+
+# --- Estágio 1: detecção de presença ---
+# Confiança mais baixa que no Modelo A (0.35): aqui o detector só precisa dizer
+# "tem algo vivo aqui". Quem decide a espécie — e quem recusa — é o estágio 2.
+detector_confidence: 0.30
+# 0.40 e nao 0.50: medido nos videos de amostra, o detector emite duas caixas sobre o
+# mesmo animal grande em 36 de 240 quadros, com IoU medio 0.453 entre elas. Com limiar
+# 0.50 o NMS mantem as duas, o rastreador cria duas trilhas e o mesmo animal e contado
+# duas vezes. Com 0.40 o resultado cai para 1 evento por individuo e a acuracia ponta a
+# ponta nao muda (mAP50 0.897, P 1.000, R 0.900 nos dois casos).
+detector_iou: 0.40
+detector_input: 416
+max_detections: 20
+
+# --- Estágio 2: classificação de espécie ---
+classifier_input: 128
+crop_margin: 0.12
+max_crops_per_frame: 3
+
+# A espécie de um indivíduo não muda: reclassificar todo quadro é desperdício.
+# Com 24 fps, 5 quadros = ~0.2 s entre classificações da mesma trilha.
+classify_every: 5
+
+# --- Rastreamento (ByteTrack-lite) ---
+tracker:
+  max_age: 30
+  min_hits: 3
+  iou_match: 0.30
+  low_score: 0.15
+  max_tracks: 32
+
+# --- Votação por indivíduo ---
+# Um evento é emitido uma vez por trilha, e só com quórum e margem.
+# min_votes=4 e min_vote_share=0.65 significam: pelo menos 4 classificações e
+# 65% do peso na mesma espécie. Com 3 votos e 55% (valores mais frouxos),
+# 2 votos contra 1 já bastariam — o mesmo erro que o Modelo A comete ao
+# confirmar por 3 quadros consecutivos.
+min_votes: 4
+min_vote_share: 0.65
+min_species_confidence: 0.50
+reject_unknown: true
+
+frame_stride: 1
+save_evidence: true
+output_dir: ../../outputs/modelo_b
+database: ../../outputs/modelo_b/events_b.sqlite3
+
+providers:
+  - CPUExecutionProvider
+intra_op_threads: 0

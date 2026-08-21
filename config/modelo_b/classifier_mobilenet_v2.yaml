@@ -1,0 +1,31 @@
+# Classificador de espécie sobre recortes.
+# MobileNetV3-Small: ~2.5M parâmetros, projetado para dispositivos móveis/embarcados.
+# Alternativas aceitas: mobilenet_v3_large, shufflenet_v2_x0_5.
+crops_dir: ../../data/crops
+output_dir: ../../models/modelo_b_mobilenet_v2
+backbone: mobilenet_v2
+input_size: 128
+
+batch_size: 32
+
+# Fase 1 (sonda linear): backbone congelado, só a cabeça aprende. Estabiliza a
+# cabeça aleatória sem destruir os pesos ImageNet com gradientes grandes.
+epochs_head: 12
+learning_rate_head: 0.0015
+
+# Fase 2 (ajuste fino): libera os blocos finais do backbone com taxa 10x menor.
+epochs_finetune: 28
+learning_rate_finetune: 0.00015
+unfreeze_from: 14
+
+weight_decay: 0.0001
+label_smoothing: 0.05
+patience: 12
+seed: 42
+
+# Amostragem inversamente proporcional à frequência da classe: a classe
+# "desconhecido" é mais numerosa que cada espécie e dominaria o gradiente.
+balanced_sampling: true
+
+# 0 = deixa o PyTorch decidir o número de threads.
+threads: 0

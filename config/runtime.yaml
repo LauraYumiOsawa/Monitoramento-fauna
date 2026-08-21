@@ -1,0 +1,18 @@
+confidence: 0.35
+iou_threshold: 0.45
+input_size: 640
+frame_stride: 1
+max_detections: 100
+class_agnostic_nms: false
+
+# Exige a presença da classe em quadros consecutivos e limita alertas repetidos.
+min_hits: 3
+cooldown_seconds: 15.0
+
+save_evidence: true
+output_dir: ../outputs
+database: ../outputs/events.sqlite3
+
+providers:
+  - CPUExecutionProvider
+intra_op_threads: 0

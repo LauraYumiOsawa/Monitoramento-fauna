@@ -1,0 +1,49 @@
+TODO:
+
+1. Ativar o ambiente
+source .venv/bin/activate
+2. Validar o código (testes unitários + smoke check)
+./scripts/check.sh
+Isso roda compileall, os 12 testes em tests/ (unittest discover) e animal-monitor info. É a validação mais rápida e não depende de dataset real.
+3. Validar o dataset
+animal-monitor validate-dataset \
+  --data config/dataset.yaml \
+  --json-output outputs/dataset_report.json
+Confere estrutura, IDs de classe, coordenadas, desbalanceamento e duplicados entre splits. Erros bloqueiam treino; avisos não bloqueiam.
+4. Treinar o baseline YOLOv8n
+animal-monitor train --config config/train.yaml
+- Resultado em runs/train/baseline_yolov8n/ (pesos em weights/best.pt).
+- Sugestão: como é CPU-only e o dataset é pequeno (180 imagens), posso sugerir rodar primeiro um teste rápido (poucas épocas, ex.: copiar train.yaml para uma versão com epochs: 3 e batch: 4) só para confirmar que o pipeline treina sem erro, antes de disparar as 100 épocas completas. Posso preparar esse arquivo alternativo se você quiser.
+5. Avaliar no split de teste
+animal-monitor evaluate \
+  --weights runs/train/baseline_yolov8n/weights/best.pt \
+  --data config/dataset.yaml \
+  --split test \
+  --output outputs/evaluation.json
+Gera mAP50-95, mAP50, mAP75, precisão, recall e tempo por etapa.
+6. Exportar para ONNX
+animal-monitor export \
+  --weights runs/train/baseline_yolov8n/weights/best.pt \
+  --data config/dataset.yaml \
+  --output-dir models \
+  --imgsz 640
+Gera models/animal_detector.onnx e models/model_metadata.json.
+7. Rodar inferência/monitoramento
+Sobre um vídeo de teste (você precisa fornecer um arquivo de vídeo, ex. amostra.mp4):
+animal-monitor infer \
+  --model models/animal_detector.onnx \
+  --source samples/video_anta.mp4 \
+  --data config/dataset.yaml \
+  --runtime config/runtime.yaml \
+  --output-video outputs/video_anta_anotado.mp4
+Ou câmera (se houver interface gráfica disponível): --source 0 --show.
+Eventos confirmados vão para outputs/events.sqlite3 com evidências JPEG.
+8. Medir desempenho (benchmark)
+animal-monitor benchmark \
+  --model models/animal_detector.onnx \
+  --source amostra.mp4 \
+  --frames 200 \
+  --output outputs/benchmark.json
+9. (Opcional) Validação ARM64 via QEMU
+./scripts/qemu_arm64_smoke.sh
+Requer Docker Buildx com QEMU/binfmt configurado. Serve só para checar compatibilidade, não para medir desempenho real (deixa isso claro no README).

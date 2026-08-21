@@ -1,0 +1,29 @@
+model: yolov8n.pt
+data: dataset.yaml
+epochs: 30
+imgsz: 640
+batch: 4
+patience: 20
+device: auto
+workers: 0
+seed: 42
+deterministic: true
+cache: disk
+project: ../runs/train
+name: baseline_yolov8n
+exist_ok: false
+plots: true
+save: true
+save_period: 10
+
+# Aumentos moderados para cenas externas e câmera fixa.
+hsv_h: 0.015
+hsv_s: 0.50
+hsv_v: 0.40
+degrees: 5.0
+translate: 0.10
+scale: 0.35
+fliplr: 0.50
+flipud: 0.0
+mosaic: 0.50
+close_mosaic: 10

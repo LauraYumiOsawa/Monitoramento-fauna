@@ -1,0 +1,99 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.Python
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Linting & Formatting
+.ruff_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# YOLO & ML
+runs/
+outputs/*
+!outputs/.gitkeep
+!outputs/README.md
+models/*
+!models/.gitkeep
+!models/README.md
+*.pt
+*.pth
+*.onnx
+*.engine
+*.tflite
+*.pb
+wandb/
+
+# Data
+data/animals/images/*/*
+data/animals/labels/*/*
+!data/animals/images/*/.gitkeep
+!data/animals/labels/*/.gitkeep
+raw/
+*.csv
+*.json
+!config/*.json
+!pyproject.json
+
+# Media Files
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.jpg
+*.jpeg
+*.png
+*.gif
+!samples/*.jpg
+!samples/*.jpeg
+!samples/*.png
+!docs/**/*.jpg
+!docs/**/*.jpeg
+!docs/**/*.png
+
+# Database
+*.sqlite3*
+*.db
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local

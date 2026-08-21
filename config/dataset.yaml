@@ -1,0 +1,11 @@
+# Formato Ultralytics YOLO para detecção de objetos.
+path: ../data/animals
+train: images/train
+val: images/val
+test: images/test
+
+# Classes configuradas para o projeto de monitoramento
+names:
+  0: anta
+  1: tamandua_bandeira
+  2: lobo_guara
