@@ -1,0 +1,62 @@
+{
+  "a_640": {
+    "recall_presenca": 0.85,
+    "precisao_presenca": 0.9444,
+    "animais": 20,
+    "deteccoes": 18
+  },
+  "a_640_split_int8full": {
+    "recall_presenca": 0.9,
+    "precisao_presenca": 0.9474,
+    "animais": 20,
+    "deteccoes": 19
+  },
+  "a_512_int8": {
+    "recall_presenca": 0.85,
+    "precisao_presenca": 1.0,
+    "animais": 20,
+    "deteccoes": 17
+  },
+  "a_320_split_int8full": {
+    "recall_presenca": 0.7,
+    "precisao_presenca": 1.0,
+    "animais": 20,
+    "deteccoes": 14
+  },
+  "a_224x320_int8": {
+    "recall_presenca": 0.75,
+    "precisao_presenca": 1.0,
+    "animais": 20,
+    "deteccoes": 15
+  },
+  "a_256_int8": {
+    "recall_presenca": 0.6,
+    "precisao_presenca": 0.8571,
+    "animais": 20,
+    "deteccoes": 14
+  },
+  "b_416": {
+    "recall_presenca": 0.9,
+    "precisao_presenca": 0.9,
+    "animais": 20,
+    "deteccoes": 20
+  },
+  "b_416_int8": {
+    "recall_presenca": 0.9,
+    "precisao_presenca": 1.0,
+    "animais": 20,
+    "deteccoes": 18
+  },
+  "b_416_split_int8full": {
+    "recall_presenca": 0.9,
+    "precisao_presenca": 0.9474,
+    "animais": 20,
+    "deteccoes": 19
+  },
+  "b_224x320_int8": {
+    "recall_presenca": 0.95,
+    "precisao_presenca": 0.95,
+    "animais": 20,
+    "deteccoes": 20
+  }
+}

@@ -1,0 +1,7 @@
+# Dependências Python da versão no Jetson Orin Nano Super (JetPack 6.2.x, CUDA 12.6).
+# Wheels aarch64 do índice jetson-ai-lab (cp310 = Python do JetPack 6).
+# Confira depois: python3 -c "import onnxruntime as o; print(o.get_available_providers())"
+# Se TensorrtExecutionProvider não aparecer, a versão cai para CUDA e, por fim, CPU
+# (a ordem está em versao.yaml); alternativa oficial: export Ultralytics format="engine".
+--extra-index-url https://pypi.jetson-ai-lab.io/jp6/cu126
+onnxruntime-gpu==1.23.0

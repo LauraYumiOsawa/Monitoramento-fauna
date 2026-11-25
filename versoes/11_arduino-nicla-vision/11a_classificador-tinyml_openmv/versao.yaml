@@ -1,0 +1,8 @@
+# Gerado por versoes/gerador/gerar_versoes.py a partir de versoes/matriz.yaml e versoes/gerador/especificacoes.yaml. Edite as entradas e regenere.
+id: 11a
+nome: Arduino Nicla Vision · TinyML (SDK do fabricante) · OpenMV + TFLite Micro (ShuffleNetV2-x0.5 INT8)
+hardware: nicla
+modelo: mcu
+artefatos:
+- destino: modelos/species_classifier_shufflenet.onnx
+  origem: models/modelo_b_shufflenet_v2_x0_5/species_classifier.onnx

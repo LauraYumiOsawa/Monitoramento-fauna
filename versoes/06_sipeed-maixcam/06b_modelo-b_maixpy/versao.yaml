@@ -1,0 +1,15 @@
+# Gerado por versoes/gerador/gerar_versoes.py a partir de versoes/matriz.yaml e versoes/gerador/especificacoes.yaml. Edite as entradas e regenere.
+id: 06b
+nome: Sipeed MaixCAM · Modelo B — YOLOv8n presença (416) + MobileNetV2 (128) · MaixPy nn.YOLOv8 + nn.Classifier
+  (cvimodel INT8)
+hardware: maixcam
+modelo: modelo-b
+artefatos:
+- destino: modelos/b_224x320.onnx
+  exportar:
+    pesos: runs/modelo_b/presence_yolov8n_416/weights/best.pt
+    entrada:
+    - 224
+    - 320
+- destino: modelos/species_classifier.onnx
+  origem: models/modelo_b/species_classifier.onnx

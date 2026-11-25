@@ -46,6 +46,56 @@ PyTorch: recebe somente o `.onnx`, OpenCV, NumPy e ONNX Runtime.
 
 O dataset e o modelo treinado não estão incluídos por tamanho e licença.
 
+## Executar todos os testes e coletar dados
+
+O script abaixo executa os testes do núcleo e das versões embarcadas, verifica a compilação
+dos fontes e coleta duração, estado de cada caso, versão do Python, plataforma e pico de
+memória do processo. Os resultados ficam em `outputs/testes/resultado.json` e
+`outputs/testes/casos.csv`:
+
+```bash
+python3 scripts/testar_tudo.py
+```
+
+O mesmo fluxo pode ser executado pelo Make:
+
+```bash
+make test-data
+```
+
+Para executar somente os testes do núcleo, use `--skip-common`. O código de saída é diferente
+de zero se a compilação ou qualquer teste falhar.
+
+### Matriz de versões em ARM64 (QEMU) e com limites de CPU/RAM (Docker)
+
+`scripts/testar_matriz.py` percorre as 25 versões de `versoes/`. Na etapa QEMU, inicia a CLI de
+cada versão com `info` dentro da imagem `animal-monitor:arm64`, emulando o núcleo da placa
+(Cortex-A76, A53 ou A78AE). Na etapa Docker, roda `benchmark` em uma imagem do conjunto de
+teste com `--cpus`/`--memory` do perfil de cada placa. A emulação usa o binário estático
+`qemu-aarch64` montado no contêiner, sem contêiner privilegiado nem binfmt no host. Leva cerca
+de 5 minutos e grava em `outputs/testes/qemu-matriz/` e `outputs/testes/docker-recursos/`:
+
+```bash
+python3 scripts/testar_matriz.py                  # as duas etapas
+python3 scripts/testar_matriz.py --etapas qemu    # só QEMU (~30 s)
+python3 scripts/testar_matriz.py --casos 01a,05b  # só algumas versões
+```
+
+Por padrão o binário é procurado em `../../avaliacao_embarcada/qemu-aarch64`; use `--qemu` ou a
+variável `ANIMAL_MONITOR_QEMU_BIN` para outro caminho.
+
+### Relatório visual
+
+`scripts/relatorio_testes_html.py` junta os testes unitários e a matriz em
+`outputs/testes/relatorio.html`, pronto para captura de tela ou impressão em PDF:
+
+```bash
+make test-report    # testes unitários + relatório
+make test-matriz    # matriz QEMU/Docker + relatório
+make test-tudo      # tudo
+xdg-open outputs/testes/relatorio.html
+```
+
 ## Instalação
 
 Use Python 3.10 ou superior.

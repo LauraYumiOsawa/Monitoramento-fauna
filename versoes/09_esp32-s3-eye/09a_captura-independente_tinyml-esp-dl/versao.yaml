@@ -1,0 +1,8 @@
+# Gerado por versoes/gerador/gerar_versoes.py a partir de versoes/matriz.yaml e versoes/gerador/especificacoes.yaml. Edite as entradas e regenere.
+id: 09a
+nome: Espressif ESP32-S3-EYE · TinyML (SDK do fabricante) · ESP-IDF + ESP-DL (MobileNetV2-128 INT8, opcional)
+hardware: esp32s3eye
+modelo: mcu
+artefatos:
+- destino: modelos/species_classifier.onnx
+  origem: models/modelo_b/species_classifier.onnx

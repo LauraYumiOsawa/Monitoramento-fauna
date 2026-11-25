@@ -1,0 +1,13 @@
+# Gerado por versoes/gerador/gerar_versoes.py a partir de versoes/matriz.yaml e versoes/gerador/especificacoes.yaml. Edite as entradas e regenere.
+id: 10a
+nome: Luckfox Pico (RV1106) · YOLOv8n multiclasse (Modelo A) · RKNN C API (RV1106, INT8, 320 px)
+hardware: luckfox
+modelo: modelo-a
+artefatos:
+- destino: modelos/a_320_split.onnx
+  exportar:
+    pesos: runs/train/baseline_yolov8n-5/weights/best.pt
+    entrada:
+    - 320
+    - 320
+    cabeca: dividida

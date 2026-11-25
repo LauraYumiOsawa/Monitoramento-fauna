@@ -1,0 +1,66 @@
+# Gerado por versoes/gerador/gerar_versoes.py a partir de versoes/matriz.yaml e versoes/gerador/especificacoes.yaml. Edite as entradas e regenere.
+id: 05a
+nome: Raspberry Pi Zero 2 W · YOLOv8n multiclasse (Modelo A) · ONNX Runtime (CPU, INT8, entrada 512)
+hardware: pizero2w
+modelo: modelo-a
+arquitetura_energia: A
+detector:
+  runtime: onnxruntime
+  arquivo: modelos/a_512_int8.onnx
+  formato_saida: standard
+  confianca: 0.35
+  iou: 0.45
+  threads: 4
+  classes:
+    0: anta
+    1: tamandua_bandeira
+    2: lobo_guara
+captura:
+  tipo: picamera2
+  largura: 1280
+  altura: 720
+  fps: 5
+  posicao_lente: 0.33
+  manter_ligada: false
+gatilho:
+  tipo: gpiozero
+  pino: 17
+iluminacao_ir:
+  tipo: gpiozero
+  pino: 27
+  modo: auto
+  limiar_lux: 5
+  noite_horas:
+  - 18
+  - 6
+evento:
+  quadros: 5
+  intervalo_s: 0.2
+  pausa_s: 10
+  min_hits: 3
+armazenamento:
+  pasta: dados
+  registro: dados/camtrap.sqlite3
+  salvar_vazias: true
+  qualidade_jpeg: 90
+implantacao:
+  deployment_id: dep-05a
+  latitude: 0.0
+  longitude: 0.0
+  local: PREENCHER antes do campo
+  camera_id: 05a
+  altura_m: null
+  instalado_por: null
+energia:
+  desligar_ao_final: false
+artefatos:
+- destino: modelos/a_512.onnx
+  exportar:
+    pesos: runs/train/baseline_yolov8n-5/weights/best.pt
+    entrada:
+    - 512
+    - 512
+- destino: modelos/a_512_int8.onnx
+  quantizar:
+    de: modelos/a_512.onnx
+    apenas_conv: true

@@ -1,0 +1,20 @@
+# Serviço systemd da versão @@ID@@ (@@NOME@@) — arquitetura de energia @@ARQUITETURA@@.
+# Instalação (no dispositivo, com o pacote em /opt/armadilha/@@ID@@):
+#   sudo cp armadilha.service /etc/systemd/system/armadilha-@@ID@@.service
+#   sudo systemctl daemon-reload && sudo systemctl enable --now armadilha-@@ID@@
+[Unit]
+Description=Armadilha fotográfica com IA local — versão @@ID@@
+After=multi-user.target
+
+[Service]
+Type=@@TIPO_SERVICO@@
+User=@@USUARIO@@
+WorkingDirectory=/opt/armadilha/@@ID@@
+ExecStart=/opt/armadilha/@@ID@@/executar.sh trap
+Restart=@@REINICIAR@@
+RestartSec=10
+# A câmera e o GPIO exigem os grupos video e gpio.
+SupplementaryGroups=video gpio
+
+[Install]
+WantedBy=multi-user.target

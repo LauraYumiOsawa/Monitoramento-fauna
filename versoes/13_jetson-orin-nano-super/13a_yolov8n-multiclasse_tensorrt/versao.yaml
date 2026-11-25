@@ -1,0 +1,61 @@
+# Gerado por versoes/gerador/gerar_versoes.py a partir de versoes/matriz.yaml e versoes/gerador/especificacoes.yaml. Edite as entradas e regenere.
+id: 13a
+nome: NVIDIA Jetson Orin Nano Super · YOLOv8n multiclasse (Modelo A) · ONNX Runtime GPU + TensorRT EP
+  (FP16)
+hardware: jetson
+modelo: modelo-a
+arquitetura_energia: A
+detector:
+  runtime: tensorrt
+  arquivo: modelos/a_640.onnx
+  formato_saida: standard
+  confianca: 0.35
+  iou: 0.45
+  provider_options:
+    TensorrtExecutionProvider:
+      trt_fp16_enable: true
+      trt_engine_cache_enable: true
+      trt_engine_cache_path: modelos/cache_trt
+  classes:
+    0: anta
+    1: tamandua_bandeira
+    2: lobo_guara
+captura:
+  tipo: opencv
+  dispositivo: nvarguscamerasrc sensor-id=0 ! video/x-raw(memory:NVMM),width=1920,height=1080,framerate=30/1
+    ! nvvidconv ! video/x-raw,format=BGRx ! videoconvert ! video/x-raw,format=BGR ! appsink drop=1
+gatilho:
+  tipo: gpiod
+  chip: /dev/gpiochip0
+  linha: 105
+iluminacao_ir:
+  tipo: gpiod
+  chip: /dev/gpiochip0
+  pino: 106
+  modo: auto
+  noite_horas:
+  - 18
+  - 6
+evento:
+  quadros: 8
+  intervalo_s: 0.15
+  pausa_s: 10
+  min_hits: 3
+armazenamento:
+  pasta: dados
+  registro: dados/camtrap.sqlite3
+  salvar_vazias: true
+  qualidade_jpeg: 90
+implantacao:
+  deployment_id: dep-13a
+  latitude: 0.0
+  longitude: 0.0
+  local: PREENCHER antes do campo
+  camera_id: 13a
+  altura_m: null
+  instalado_por: null
+energia:
+  desligar_ao_final: false
+artefatos:
+- destino: modelos/a_640.onnx
+  origem: models/animal_detector.onnx

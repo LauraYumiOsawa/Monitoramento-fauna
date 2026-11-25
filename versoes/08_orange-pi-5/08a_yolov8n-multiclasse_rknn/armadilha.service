@@ -1,0 +1,20 @@
+# Serviço systemd da versão 08a (Orange Pi 5 · YOLOv8n multiclasse (Modelo A) · RKNN (NPU, INT8, cabeça dividida) + rknn-toolkit-lite2) — arquitetura de energia A.
+# Instalação (no dispositivo, com o pacote em /opt/armadilha/08a):
+#   sudo cp armadilha.service /etc/systemd/system/armadilha-08a.service
+#   sudo systemctl daemon-reload && sudo systemctl enable --now armadilha-08a
+[Unit]
+Description=Armadilha fotográfica com IA local — versão 08a
+After=multi-user.target
+
+[Service]
+Type=simple
+User=orangepi
+WorkingDirectory=/opt/armadilha/08a
+ExecStart=/opt/armadilha/08a/executar.sh trap
+Restart=on-failure
+RestartSec=10
+# A câmera e o GPIO exigem os grupos video e gpio.
+SupplementaryGroups=video gpio
+
+[Install]
+WantedBy=multi-user.target

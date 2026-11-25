@@ -1,0 +1,20 @@
+# Serviço systemd da versão 03a (Raspberry Pi 5 + AI HAT+ 26 TOPS (Hailo-8) · YOLOv8n multiclasse (Modelo A) · HailoRT (HEF hailo8, INT8, NMS no chip)) — arquitetura de energia A.
+# Instalação (no dispositivo, com o pacote em /opt/armadilha/03a):
+#   sudo cp armadilha.service /etc/systemd/system/armadilha-03a.service
+#   sudo systemctl daemon-reload && sudo systemctl enable --now armadilha-03a
+[Unit]
+Description=Armadilha fotográfica com IA local — versão 03a
+After=multi-user.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/opt/armadilha/03a
+ExecStart=/opt/armadilha/03a/executar.sh trap
+Restart=on-failure
+RestartSec=10
+# A câmera e o GPIO exigem os grupos video e gpio.
+SupplementaryGroups=video gpio
+
+[Install]
+WantedBy=multi-user.target

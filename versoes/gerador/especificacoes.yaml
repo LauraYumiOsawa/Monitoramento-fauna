@@ -1,0 +1,271 @@
+# Especificação técnica de cada versão gerada (a matriz.yaml diz SE gerar; aqui, COMO).
+# Lida por gerar_versoes.py. Caminhos de `artefatos` relativos à raiz do projeto;
+# `detector.arquivo`/`classificador.arquivo` relativos à pasta da versão.
+
+padroes:
+  classes: {0: anta, 1: tamandua_bandeira, 2: lobo_guara}
+  rotulos_b: [anta, tamandua_bandeira, lobo_guara, desconhecido]
+  pesos_a: runs/train/baseline_yolov8n-5/weights/best.pt
+  pesos_b: runs/modelo_b/presence_yolov8n_416/weights/best.pt
+  evento: {quadros: 8, intervalo_s: 0.15, pausa_s: 10, min_hits: 3}
+  armazenamento: {pasta: dados, registro: dados/camtrap.sqlite3, salvar_vazias: true,
+                  qualidade_jpeg: 90}
+  captura_pi: {tipo: picamera2, largura: 1536, altura: 864, fps: 10, posicao_lente: 0.33,
+               manter_ligada: false}
+  gatilho_pi: {tipo: gpiozero, pino: 17}
+  ir_pi: {tipo: gpiozero, pino: 27, modo: auto, limiar_lux: 5, noite_horas: [18, 6]}
+
+versoes:
+  "01a":
+    modelo: modelo-a
+    arquitetura: A
+    detector: {runtime: onnxruntime, arquivo: modelos/a_640.onnx, formato_saida: standard,
+               confianca: 0.35, iou: 0.45, threads: 4}
+    alternativas:
+      - "Entrada 512: troque `detector.arquivo` por `modelos/a_512.onnx` (F1 igual no proxy, ~0,65× a latência)."
+    artefatos:
+      - {destino: modelos/a_640.onnx, origem: models/animal_detector.onnx}
+      - {destino: modelos/a_512.onnx, exportar: {pesos: pesos_a, entrada: [512, 512]}}
+    proxy_qualidade: a_640
+  "01b":
+    modelo: modelo-b
+    arquitetura: A
+    detector: {runtime: onnxruntime, arquivo: modelos/b_416.onnx, formato_saida: standard,
+               confianca: 0.30, iou: 0.40, threads: 4}
+    classificador: {runtime: onnxruntime, arquivo: modelos/species_classifier.onnx, threads: 2}
+    alternativas:
+      - "INT8: `modelos/b_416_int8.onnx` + `modelos/species_classifier_int8.onnx` (5,7 MB; F1 0,842 contra 0,947 no proxy)."
+    artefatos:
+      - {destino: modelos/b_416.onnx, origem: models/modelo_b/presence_detector.onnx}
+      - {destino: modelos/species_classifier.onnx, origem: models/modelo_b/species_classifier.onnx}
+      - {destino: modelos/b_416_int8.onnx, origem: models/modelo_b/presence_detector_int8.onnx}
+      - {destino: modelos/species_classifier_int8.onnx, origem: models/modelo_b/species_classifier_int8.onnx}
+    proxy_qualidade: b_416+mnv2
+  "01c":
+    modelo: lote
+    arquitetura: C
+    hardware_lote: "Raspberry Pi 5 de 8 GB"
+    dispositivo_torch: cpu
+    proxy_qualidade: null
+  "02a":
+    modelo: modelo-a
+    arquitetura: A
+    hailo: {arch: hailo8l, entrada: 640, classes: 3, onnx: modelos/a_640.onnx}
+    detector: {runtime: hailo, arquivo: modelos/a_640_hailo8l.hef, formato_saida: hailo_nms,
+               confianca: 0.35, iou: 0.45}
+    artefatos:
+      - {destino: modelos/a_640.onnx, origem: models/animal_detector.onnx}
+    proxy_qualidade: a_640_split_int8full
+  "02b":
+    modelo: modelo-b
+    arquitetura: A
+    hailo: {arch: hailo8l, entrada: 416, classes: 1, onnx: modelos/b_416.onnx}
+    detector: {runtime: hailo, arquivo: modelos/b_416_hailo8l.hef, formato_saida: hailo_nms,
+               confianca: 0.30, iou: 0.40}
+    classificador: {runtime: onnxruntime, arquivo: modelos/species_classifier.onnx, threads: 2}
+    artefatos:
+      - {destino: modelos/b_416.onnx, origem: models/modelo_b/presence_detector.onnx}
+      - {destino: modelos/species_classifier.onnx, origem: models/modelo_b/species_classifier.onnx}
+    proxy_qualidade: b_416_int8+mnv2
+  "03a":
+    modelo: modelo-a
+    arquitetura: A
+    hailo: {arch: hailo8, entrada: 640, classes: 3, onnx: modelos/a_640.onnx}
+    detector: {runtime: hailo, arquivo: modelos/a_640_hailo8.hef, formato_saida: hailo_nms,
+               confianca: 0.35, iou: 0.45}
+    artefatos:
+      - {destino: modelos/a_640.onnx, origem: models/animal_detector.onnx}
+    proxy_qualidade: a_640_split_int8full
+  "03b":
+    modelo: modelo-b
+    arquitetura: A
+    hailo: {arch: hailo8, entrada: 416, classes: 1, onnx: modelos/b_416.onnx}
+    detector: {runtime: hailo, arquivo: modelos/b_416_hailo8.hef, formato_saida: hailo_nms,
+               confianca: 0.30, iou: 0.40}
+    classificador: {runtime: onnxruntime, arquivo: modelos/species_classifier.onnx, threads: 2}
+    artefatos:
+      - {destino: modelos/b_416.onnx, origem: models/modelo_b/presence_detector.onnx}
+      - {destino: modelos/species_classifier.onnx, origem: models/modelo_b/species_classifier.onnx}
+    proxy_qualidade: b_416_int8+mnv2
+  "04a":
+    modelo: modelo-a
+    arquitetura: A
+    imx500: {entrada: 640, pesos: pesos_a}
+    detector: {runtime: imx500, arquivo: modelos/a_640_imx500/network.rpk, confianca: 0.35,
+               max_deteccoes: 20, bbox_normalizada: true, ordem_bbox: xy}
+    captura: {tipo: imx500, largura: 1536, altura: 864, fps: 10, manter_ligada: true}
+    proxy_qualidade: a_640_split_int8full
+  "04b":
+    modelo: modelo-b
+    arquitetura: A
+    imx500: {entrada: 416, pesos: pesos_b}
+    detector: {runtime: imx500, arquivo: modelos/b_416_imx500/network.rpk, confianca: 0.30,
+               max_deteccoes: 20, bbox_normalizada: true, ordem_bbox: xy}
+    classificador: {runtime: onnxruntime, arquivo: modelos/species_classifier.onnx, threads: 2}
+    captura: {tipo: imx500, largura: 1536, altura: 864, fps: 10, manter_ligada: true}
+    artefatos:
+      - {destino: modelos/species_classifier.onnx, origem: models/modelo_b/species_classifier.onnx}
+    proxy_qualidade: b_416_split_int8full+mnv2_int8
+  "05a":
+    modelo: modelo-a
+    arquitetura: A
+    detector: {runtime: onnxruntime, arquivo: modelos/a_512_int8.onnx, formato_saida: standard,
+               confianca: 0.35, iou: 0.45, threads: 4}
+    captura: {tipo: picamera2, largura: 1280, altura: 720, fps: 5, posicao_lente: 0.33,
+              manter_ligada: false}
+    evento: {quadros: 5, intervalo_s: 0.2, pausa_s: 10, min_hits: 3}
+    artefatos:
+      - {destino: modelos/a_512.onnx, exportar: {pesos: pesos_a, entrada: [512, 512]}}
+      - {destino: modelos/a_512_int8.onnx, quantizar: {de: modelos/a_512.onnx, apenas_conv: true}}
+    proxy_qualidade: a_512_int8
+  "05b":
+    modelo: modelo-b
+    arquitetura: A
+    detector: {runtime: onnxruntime, arquivo: modelos/b_416_int8.onnx, formato_saida: standard,
+               confianca: 0.30, iou: 0.40, threads: 4}
+    classificador: {runtime: onnxruntime, arquivo: modelos/species_classifier_int8.onnx, threads: 2}
+    captura: {tipo: picamera2, largura: 1280, altura: 720, fps: 5, posicao_lente: 0.33,
+              manter_ligada: false}
+    evento: {quadros: 5, intervalo_s: 0.2, pausa_s: 10, min_hits: 3}
+    artefatos:
+      - {destino: modelos/b_416_int8.onnx, origem: models/modelo_b/presence_detector_int8.onnx}
+      - {destino: modelos/species_classifier_int8.onnx, origem: models/modelo_b/species_classifier_int8.onnx}
+    proxy_qualidade: b_416_int8+mnv2_int8
+  "06a":
+    modelo: modelo-a
+    arquitetura: A
+    maix: {entrada: [224, 320], onnx: modelos/a_224x320.onnx, cvimodel: a_224x320_int8.cvimodel}
+    artefatos:
+      - {destino: modelos/a_224x320.onnx, exportar: {pesos: pesos_a, entrada: [224, 320]}}
+    proxy_qualidade: a_224x320_int8
+  "06b":
+    modelo: modelo-b
+    arquitetura: A
+    maix: {entrada: [224, 320], onnx: modelos/b_224x320.onnx, cvimodel: b_224x320_int8.cvimodel,
+           classificador_onnx: modelos/species_classifier.onnx,
+           classificador_cvimodel: species_classifier_int8.cvimodel}
+    artefatos:
+      - {destino: modelos/b_224x320.onnx, exportar: {pesos: pesos_b, entrada: [224, 320]}}
+      - {destino: modelos/species_classifier.onnx, origem: models/modelo_b/species_classifier.onnx}
+    proxy_qualidade: b_224x320_int8+mnv2_int8
+  "07a":
+    modelo: modelo-a
+    arquitetura: A
+    grove: {entrada: 256, pesos: pesos_a}
+    proxy_qualidade: a_256_int8
+  "08a":
+    modelo: modelo-a
+    arquitetura: A
+    rknn: {plataforma: rk3588, onnx: modelos/a_640_split.onnx, entrada: [640, 640]}
+    detector: {runtime: rknn, arquivo: modelos/a_640_split_rk3588.rknn, formato_saida: split,
+               layout_saida: nchw, confianca: 0.35, iou: 0.45, nucleos_npu: "0_1_2",
+               entrada: [640, 640]}
+    captura: {tipo: opencv, dispositivo: 0, largura: 1920, altura: 1080}
+    gatilho: {tipo: gpiod, chip: /dev/gpiochip1, linha: 3}
+    iluminacao_ir: {tipo: gpiod, chip: /dev/gpiochip1, pino: 4, modo: auto, noite_horas: [18, 6]}
+    alternativas:
+      - "Sem NPU (comparação CPU × NPU da QP3): `detector.runtime: onnxruntime`, `arquivo: modelos/a_640_split.onnx`, mesmo `formato_saida: split`."
+    artefatos:
+      - {destino: modelos/a_640_split.onnx, exportar: {pesos: pesos_a, entrada: [640, 640], cabeca: dividida}}
+    proxy_qualidade: a_640_split_int8full
+  "08b":
+    modelo: modelo-b
+    arquitetura: A
+    rknn: {plataforma: rk3588, onnx: modelos/b_416_split.onnx, entrada: [416, 416],
+           classificador_onnx: modelos/species_classifier.onnx}
+    detector: {runtime: rknn, arquivo: modelos/b_416_split_rk3588.rknn, formato_saida: split,
+               layout_saida: nchw, confianca: 0.30, iou: 0.40, nucleos_npu: "0", entrada: [416, 416]}
+    classificador: {runtime: rknn, arquivo: modelos/species_classifier_rk3588.rknn,
+                    nucleos_npu: "1", entrada: [128, 128]}
+    captura: {tipo: opencv, dispositivo: 0, largura: 1920, altura: 1080}
+    gatilho: {tipo: gpiod, chip: /dev/gpiochip1, linha: 3}
+    iluminacao_ir: {tipo: gpiod, chip: /dev/gpiochip1, pino: 4, modo: auto, noite_horas: [18, 6]}
+    alternativas:
+      - "Sem NPU: `runtime: onnxruntime` com `modelos/b_416_split.onnx` e `modelos/species_classifier.onnx`."
+    artefatos:
+      - {destino: modelos/b_416_split.onnx, exportar: {pesos: pesos_b, entrada: [416, 416], cabeca: dividida}}
+      - {destino: modelos/species_classifier.onnx, origem: models/modelo_b/species_classifier.onnx}
+    proxy_qualidade: b_416_split_int8full+mnv2_int8
+  "08c":
+    modelo: lote
+    arquitetura: C
+    hardware_lote: "Orange Pi 5 de 8 ou 16 GB"
+    dispositivo_torch: cpu
+    proxy_qualidade: null
+  "09a":
+    modelo: mcu
+    arquitetura: C
+    esp: {classificador_onnx: modelos/species_classifier.onnx}
+    artefatos:
+      - {destino: modelos/species_classifier.onnx, origem: models/modelo_b/species_classifier.onnx}
+    proxy_qualidade: quadro_inteiro_mnv2_int8
+  "10a":
+    modelo: modelo-a
+    arquitetura: A
+    rknn: {plataforma: rv1106, onnx: modelos/a_320_split.onnx, entrada: [320, 320]}
+    artefatos:
+      - {destino: modelos/a_320_split.onnx, exportar: {pesos: pesos_a, entrada: [320, 320], cabeca: dividida}}
+    proxy_qualidade: a_320_split_int8full
+  "11a":
+    modelo: mcu
+    arquitetura: A
+    openmv: {classificador_onnx: modelos/species_classifier_shufflenet.onnx}
+    artefatos:
+      - {destino: modelos/species_classifier_shufflenet.onnx, origem: models/modelo_b_shufflenet_v2_x0_5/species_classifier.onnx}
+    proxy_qualidade: quadro_inteiro_shufflenet_int8
+  "12a":
+    modelo: modelo-a
+    arquitetura: A
+    hailo: {arch: hailo10h, entrada: 640, classes: 3, onnx: modelos/a_640.onnx}
+    detector: {runtime: hailo, arquivo: modelos/a_640_hailo10h.hef, formato_saida: hailo_nms,
+               confianca: 0.35, iou: 0.45}
+    artefatos:
+      - {destino: modelos/a_640.onnx, origem: models/animal_detector.onnx}
+    proxy_qualidade: a_640_split_int8full
+  "12b":
+    modelo: modelo-b
+    arquitetura: A
+    hailo: {arch: hailo10h, entrada: 416, classes: 1, onnx: modelos/b_416.onnx}
+    detector: {runtime: hailo, arquivo: modelos/b_416_hailo10h.hef, formato_saida: hailo_nms,
+               confianca: 0.30, iou: 0.40}
+    classificador: {runtime: onnxruntime, arquivo: modelos/species_classifier.onnx, threads: 2}
+    artefatos:
+      - {destino: modelos/b_416.onnx, origem: models/modelo_b/presence_detector.onnx}
+      - {destino: modelos/species_classifier.onnx, origem: models/modelo_b/species_classifier.onnx}
+    proxy_qualidade: b_416_int8+mnv2
+  "13a":
+    modelo: modelo-a
+    arquitetura: A
+    detector: {runtime: tensorrt, arquivo: modelos/a_640.onnx, formato_saida: standard,
+               confianca: 0.35, iou: 0.45,
+               provider_options: {TensorrtExecutionProvider: {trt_fp16_enable: true,
+                 trt_engine_cache_enable: true, trt_engine_cache_path: modelos/cache_trt}}}
+    captura: {tipo: opencv, dispositivo: "nvarguscamerasrc sensor-id=0 ! video/x-raw(memory:NVMM),width=1920,height=1080,framerate=30/1 ! nvvidconv ! video/x-raw,format=BGRx ! videoconvert ! video/x-raw,format=BGR ! appsink drop=1"}
+    gatilho: {tipo: gpiod, chip: /dev/gpiochip0, linha: 105}
+    iluminacao_ir: {tipo: gpiod, chip: /dev/gpiochip0, pino: 106, modo: auto, noite_horas: [18, 6]}
+    artefatos:
+      - {destino: modelos/a_640.onnx, origem: models/animal_detector.onnx}
+    proxy_qualidade: a_640
+  "13b":
+    modelo: modelo-b
+    arquitetura: A
+    detector: {runtime: tensorrt, arquivo: modelos/b_416.onnx, formato_saida: standard,
+               confianca: 0.30, iou: 0.40,
+               provider_options: {TensorrtExecutionProvider: {trt_fp16_enable: true,
+                 trt_engine_cache_enable: true, trt_engine_cache_path: modelos/cache_trt}}}
+    classificador: {runtime: tensorrt, arquivo: modelos/species_classifier.onnx,
+                    provider_options: {TensorrtExecutionProvider: {trt_fp16_enable: true,
+                      trt_engine_cache_enable: true, trt_engine_cache_path: modelos/cache_trt}}}
+    captura: {tipo: opencv, dispositivo: "nvarguscamerasrc sensor-id=0 ! video/x-raw(memory:NVMM),width=1920,height=1080,framerate=30/1 ! nvvidconv ! video/x-raw,format=BGRx ! videoconvert ! video/x-raw,format=BGR ! appsink drop=1"}
+    gatilho: {tipo: gpiod, chip: /dev/gpiochip0, linha: 105}
+    iluminacao_ir: {tipo: gpiod, chip: /dev/gpiochip0, pino: 106, modo: auto, noite_horas: [18, 6]}
+    artefatos:
+      - {destino: modelos/b_416.onnx, origem: models/modelo_b/presence_detector.onnx}
+      - {destino: modelos/species_classifier.onnx, origem: models/modelo_b/species_classifier.onnx}
+    proxy_qualidade: b_416+mnv2
+  "13c":
+    modelo: lote
+    arquitetura: C
+    hardware_lote: "Jetson Orin Nano Super (8 GB)"
+    dispositivo_torch: cuda
+    proxy_qualidade: null

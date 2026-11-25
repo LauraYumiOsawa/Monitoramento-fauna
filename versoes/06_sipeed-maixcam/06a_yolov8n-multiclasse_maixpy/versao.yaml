@@ -1,0 +1,12 @@
+# Gerado por versoes/gerador/gerar_versoes.py a partir de versoes/matriz.yaml e versoes/gerador/especificacoes.yaml. Edite as entradas e regenere.
+id: 06a
+nome: Sipeed MaixCAM · YOLOv8n multiclasse (Modelo A) · MaixPy nn.YOLOv8 (cvimodel INT8, 224×320)
+hardware: maixcam
+modelo: modelo-a
+artefatos:
+- destino: modelos/a_224x320.onnx
+  exportar:
+    pesos: runs/train/baseline_yolov8n-5/weights/best.pt
+    entrada:
+    - 224
+    - 320

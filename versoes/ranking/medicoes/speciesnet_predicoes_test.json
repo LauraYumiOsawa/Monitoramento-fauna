@@ -1,0 +1,911 @@
+{
+ "info": {
+  "format_version": "20261015"
+ },
+ "predictions": [
+  {
+   "filepath": "/home/losawa/Music/TCC/monitoramento-animais-tcc/monitoramento-animais/data/animals/images/test/Gemini_Generated_Image_4ojs974ojs974ojs.png",
+   "country": "BRA",
+   "detections": [
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.96,
+     "bbox": [
+      0.3657,
+      0.2605,
+      0.4766,
+      0.513
+     ],
+     "raw_classifications": {
+      "classes": [
+       "2b98dad0-1e0e-4488-9cbe-9c4777dd9eca;mammalia;pilosa;myrmecophagidae;myrmecophaga;tridactyla;giant anteater",
+       "e70effd7-855e-4ba3-966c-a4fbb74eab13;mammalia;carnivora;mustelidae;taxidea;taxus;american badger"
+      ],
+      "scores": [
+       1.0,
+       0.0
+      ]
+     },
+     "processed_classification": {
+      "class": "2b98dad0-1e0e-4488-9cbe-9c4777dd9eca;mammalia;pilosa;myrmecophagidae;myrmecophaga;tridactyla;giant anteater",
+      "score": 1.0,
+      "source": "classifier"
+     }
+    }
+   ],
+   "model_version": "4.0.3a"
+  },
+  {
+   "filepath": "/home/losawa/Music/TCC/monitoramento-animais-tcc/monitoramento-animais/data/animals/images/test/Gemini_Generated_Image_jeqwcyjeqwcyjeqw.png",
+   "country": "BRA",
+   "detections": [
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.975,
+     "bbox": [
+      0.3389,
+      0.3957,
+      0.5444,
+      0.4387
+     ],
+     "raw_classifications": {
+      "classes": [
+       "2b98dad0-1e0e-4488-9cbe-9c4777dd9eca;mammalia;pilosa;myrmecophagidae;myrmecophaga;tridactyla;giant anteater",
+       "a4f40e31-17f6-45b7-8b9d-e32af92a24df;mammalia;carnivora;mustelidae;mellivora;capensis;honey badger"
+      ],
+      "scores": [
+       1.0,
+       0.0
+      ]
+     },
+     "processed_classification": {
+      "class": "2b98dad0-1e0e-4488-9cbe-9c4777dd9eca;mammalia;pilosa;myrmecophagidae;myrmecophaga;tridactyla;giant anteater",
+      "score": 1.0,
+      "source": "classifier"
+     }
+    }
+   ],
+   "model_version": "4.0.3a"
+  },
+  {
+   "filepath": "/home/losawa/Music/TCC/monitoramento-animais-tcc/monitoramento-animais/data/animals/images/test/anta00000005.jpg",
+   "country": "BRA",
+   "detections": [
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.9774,
+     "bbox": [
+      0.0787,
+      0.0,
+      0.92,
+      0.9958
+     ],
+     "raw_classifications": {
+      "classes": [
+       "39e5ea73-38f1-454a-8054-7c67f20fbced;mammalia;perissodactyla;tapiridae;tapirus;terrestris;lowland tapir",
+       "7dfa5f8e-30b1-44f3-9959-6922a82cc20b;mammalia;perissodactyla;tapiridae;tapirus;;tapirus species"
+      ],
+      "scores": [
+       0.9987,
+       0.0007
+      ]
+     },
+     "processed_classification": {
+      "class": "39e5ea73-38f1-454a-8054-7c67f20fbced;mammalia;perissodactyla;tapiridae;tapirus;terrestris;lowland tapir",
+      "score": 0.9987,
+      "source": "classifier"
+     }
+    }
+   ],
+   "model_version": "4.0.3a"
+  },
+  {
+   "filepath": "/home/losawa/Music/TCC/monitoramento-animais-tcc/monitoramento-animais/data/animals/images/test/anta00000024.jpg",
+   "country": "BRA",
+   "detections": [
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.9788,
+     "bbox": [
+      0.2625,
+      0.03,
+      0.7375,
+      0.97
+     ],
+     "raw_classifications": {
+      "classes": [
+       "a31181bf-72d3-4b97-adfd-699097d9e99d;mammalia;perissodactyla;tapiridae;tapirus;indicus;malay tapir",
+       "4e7cbfc9-8404-47ba-8c43-0105946add41;mammalia;chiroptera;phyllostomidae;desmodus;rotundus;vampire bat"
+      ],
+      "scores": [
+       0.9986,
+       0.0007
+      ]
+     },
+     "processed_classification": {
+      "class": "6383ac65-4bf5-4cd4-ab2a-7be56a1d533b;mammalia;perissodactyla;tapiridae;;;tapiridae family",
+      "score": 0.9987,
+      "source": "classifier+geofence+rollup_to_family"
+     }
+    }
+   ],
+   "model_version": "4.0.3a"
+  },
+  {
+   "filepath": "/home/losawa/Music/TCC/monitoramento-animais-tcc/monitoramento-animais/data/animals/images/test/anta00000036.jpg",
+   "country": "BRA",
+   "detections": [
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.9789,
+     "bbox": [
+      0.4092,
+      0.3871,
+      0.3594,
+      0.5323
+     ],
+     "raw_classifications": {
+      "classes": [
+       "4e7cbfc9-8404-47ba-8c43-0105946add41;mammalia;chiroptera;phyllostomidae;desmodus;rotundus;vampire bat",
+       "e465aa4e-d6ac-46fe-b990-e4fac9fb08ed;mammalia;perissodactyla;rhinocerotidae;dicerorhinus;sumatrensis;sumatran rhinoceros"
+      ],
+      "scores": [
+       0.8024,
+       0.1115
+      ]
+     },
+     "processed_classification": {
+      "class": "4e7cbfc9-8404-47ba-8c43-0105946add41;mammalia;chiroptera;phyllostomidae;desmodus;rotundus;vampire bat",
+      "score": 0.8024,
+      "source": "classifier"
+     }
+    }
+   ],
+   "model_version": "4.0.3a"
+  },
+  {
+   "filepath": "/home/losawa/Music/TCC/monitoramento-animais-tcc/monitoramento-animais/data/animals/images/test/anta00000068.jpg",
+   "country": "BRA",
+   "detections": [
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.9772,
+     "bbox": [
+      0.001,
+      0.1038,
+      0.625,
+      0.8947
+     ],
+     "raw_classifications": {
+      "classes": [
+       "39e5ea73-38f1-454a-8054-7c67f20fbced;mammalia;perissodactyla;tapiridae;tapirus;terrestris;lowland tapir",
+       "4e7cbfc9-8404-47ba-8c43-0105946add41;mammalia;chiroptera;phyllostomidae;desmodus;rotundus;vampire bat"
+      ],
+      "scores": [
+       0.9141,
+       0.0656
+      ]
+     },
+     "processed_classification": {
+      "class": "39e5ea73-38f1-454a-8054-7c67f20fbced;mammalia;perissodactyla;tapiridae;tapirus;terrestris;lowland tapir",
+      "score": 0.9141,
+      "source": "classifier"
+     }
+    },
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.9707,
+     "bbox": [
+      0.4404,
+      0.1506,
+      0.3711,
+      0.8465
+     ],
+     "raw_classifications": {
+      "classes": [
+       "39e5ea73-38f1-454a-8054-7c67f20fbced;mammalia;perissodactyla;tapiridae;tapirus;terrestris;lowland tapir",
+       "4e7cbfc9-8404-47ba-8c43-0105946add41;mammalia;chiroptera;phyllostomidae;desmodus;rotundus;vampire bat"
+      ],
+      "scores": [
+       0.7149,
+       0.1436
+      ]
+     },
+     "processed_classification": {
+      "class": "39e5ea73-38f1-454a-8054-7c67f20fbced;mammalia;perissodactyla;tapiridae;tapirus;terrestris;lowland tapir",
+      "score": 0.7149,
+      "source": "classifier"
+     }
+    },
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.0173,
+     "bbox": [
+      0.8408,
+      0.1067,
+      0.0508,
+      0.1155
+     ]
+    }
+   ],
+   "model_version": "4.0.3a"
+  },
+  {
+   "filepath": "/home/losawa/Music/TCC/monitoramento-animais-tcc/monitoramento-animais/data/animals/images/test/anta00000091.jpg",
+   "country": "BRA",
+   "detections": [
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.9663,
+     "bbox": [
+      0.1453,
+      0.0868,
+      0.8539,
+      0.9097
+     ],
+     "raw_classifications": {
+      "classes": [
+       "39e5ea73-38f1-454a-8054-7c67f20fbced;mammalia;perissodactyla;tapiridae;tapirus;terrestris;lowland tapir",
+       "7dfa5f8e-30b1-44f3-9959-6922a82cc20b;mammalia;perissodactyla;tapiridae;tapirus;;tapirus species"
+      ],
+      "scores": [
+       0.9866,
+       0.0117
+      ]
+     },
+     "processed_classification": {
+      "class": "39e5ea73-38f1-454a-8054-7c67f20fbced;mammalia;perissodactyla;tapiridae;tapirus;terrestris;lowland tapir",
+      "score": 0.9866,
+      "source": "classifier"
+     }
+    }
+   ],
+   "model_version": "4.0.3a"
+  },
+  {
+   "filepath": "/home/losawa/Music/TCC/monitoramento-animais-tcc/monitoramento-animais/data/animals/images/test/anta00000107.jpg",
+   "country": "BRA",
+   "detections": [
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.9608,
+     "bbox": [
+      0.0,
+      0.2344,
+      0.7188,
+      0.6594
+     ],
+     "raw_classifications": {
+      "classes": [
+       "a31181bf-72d3-4b97-adfd-699097d9e99d;mammalia;perissodactyla;tapiridae;tapirus;indicus;malay tapir",
+       "d3d5325f-b055-4925-b875-5cd28af54215;mammalia;carnivora;canidae;canis;;canis species"
+      ],
+      "scores": [
+       0.9992,
+       0.0002
+      ]
+     },
+     "processed_classification": {
+      "class": "6383ac65-4bf5-4cd4-ab2a-7be56a1d533b;mammalia;perissodactyla;tapiridae;;;tapiridae family",
+      "score": 0.9994,
+      "source": "classifier+geofence+rollup_to_family"
+     }
+    },
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.028,
+     "bbox": [
+      0.5729,
+      0.6281,
+      0.126,
+      0.1203
+     ]
+    }
+   ],
+   "model_version": "4.0.3a"
+  },
+  {
+   "filepath": "/home/losawa/Music/TCC/monitoramento-animais-tcc/monitoramento-animais/data/animals/images/test/loboGuara00000001.jpg",
+   "country": "BRA",
+   "detections": [
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.9655,
+     "bbox": [
+      0.1384,
+      0.1939,
+      0.8542,
+      0.7935
+     ],
+     "raw_classifications": {
+      "classes": [
+       "a5105a31-78d8-4709-81d6-1aa6822ab86f;mammalia;carnivora;canidae;chrysocyon;brachyurus;maned wolf",
+       "b9aeb369-cc41-4303-9b95-edcd7bcc8ff6;mammalia;artiodactyla;cervidae;blastocerus;dichotomus;marsh deer"
+      ],
+      "scores": [
+       0.9828,
+       0.0151
+      ]
+     },
+     "processed_classification": {
+      "class": "a5105a31-78d8-4709-81d6-1aa6822ab86f;mammalia;carnivora;canidae;chrysocyon;brachyurus;maned wolf",
+      "score": 0.9828,
+      "source": "classifier"
+     }
+    }
+   ],
+   "model_version": "4.0.3a"
+  },
+  {
+   "filepath": "/home/losawa/Music/TCC/monitoramento-animais-tcc/monitoramento-animais/data/animals/images/test/loboGuara00000009.jpg",
+   "country": "BRA",
+   "detections": [
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.9084,
+     "bbox": [
+      0.3715,
+      0.0026,
+      0.5608,
+      0.9857
+     ],
+     "raw_classifications": {
+      "classes": [
+       "a5105a31-78d8-4709-81d6-1aa6822ab86f;mammalia;carnivora;canidae;chrysocyon;brachyurus;maned wolf",
+       "b9aeb369-cc41-4303-9b95-edcd7bcc8ff6;mammalia;artiodactyla;cervidae;blastocerus;dichotomus;marsh deer"
+      ],
+      "scores": [
+       0.9836,
+       0.0094
+      ]
+     },
+     "processed_classification": {
+      "class": "a5105a31-78d8-4709-81d6-1aa6822ab86f;mammalia;carnivora;canidae;chrysocyon;brachyurus;maned wolf",
+      "score": 0.9836,
+      "source": "classifier"
+     }
+    }
+   ],
+   "model_version": "4.0.3a"
+  },
+  {
+   "filepath": "/home/losawa/Music/TCC/monitoramento-animais-tcc/monitoramento-animais/data/animals/images/test/loboGuara00000023.jpg",
+   "country": "BRA",
+   "detections": [
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.9745,
+     "bbox": [
+      0.0664,
+      0.0888,
+      0.8378,
+      0.8031
+     ],
+     "raw_classifications": {
+      "classes": [
+       "a5105a31-78d8-4709-81d6-1aa6822ab86f;mammalia;carnivora;canidae;chrysocyon;brachyurus;maned wolf",
+       "b9aeb369-cc41-4303-9b95-edcd7bcc8ff6;mammalia;artiodactyla;cervidae;blastocerus;dichotomus;marsh deer"
+      ],
+      "scores": [
+       0.7984,
+       0.2
+      ]
+     },
+     "processed_classification": {
+      "class": "a5105a31-78d8-4709-81d6-1aa6822ab86f;mammalia;carnivora;canidae;chrysocyon;brachyurus;maned wolf",
+      "score": 0.7984,
+      "source": "classifier"
+     }
+    }
+   ],
+   "model_version": "4.0.3a"
+  },
+  {
+   "filepath": "/home/losawa/Music/TCC/monitoramento-animais-tcc/monitoramento-animais/data/animals/images/test/loboGuara00000025.jpg",
+   "country": "BRA",
+   "detections": [
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.9332,
+     "bbox": [
+      0.3657,
+      0.1521,
+      0.3314,
+      0.7891
+     ],
+     "raw_classifications": {
+      "classes": [
+       "a5105a31-78d8-4709-81d6-1aa6822ab86f;mammalia;carnivora;canidae;chrysocyon;brachyurus;maned wolf",
+       "b9aeb369-cc41-4303-9b95-edcd7bcc8ff6;mammalia;artiodactyla;cervidae;blastocerus;dichotomus;marsh deer"
+      ],
+      "scores": [
+       0.9211,
+       0.0693
+      ]
+     },
+     "processed_classification": {
+      "class": "a5105a31-78d8-4709-81d6-1aa6822ab86f;mammalia;carnivora;canidae;chrysocyon;brachyurus;maned wolf",
+      "score": 0.9211,
+      "source": "classifier"
+     }
+    }
+   ],
+   "model_version": "4.0.3a"
+  },
+  {
+   "filepath": "/home/losawa/Music/TCC/monitoramento-animais-tcc/monitoramento-animais/data/animals/images/test/loboGuara00000065.jpg",
+   "country": "BRA",
+   "detections": [
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.9593,
+     "bbox": [
+      0.023,
+      0.115,
+      0.3656,
+      0.8834
+     ],
+     "raw_classifications": {
+      "classes": [
+       "a5105a31-78d8-4709-81d6-1aa6822ab86f;mammalia;carnivora;canidae;chrysocyon;brachyurus;maned wolf",
+       "b9aeb369-cc41-4303-9b95-edcd7bcc8ff6;mammalia;artiodactyla;cervidae;blastocerus;dichotomus;marsh deer"
+      ],
+      "scores": [
+       0.9675,
+       0.0178
+      ]
+     },
+     "processed_classification": {
+      "class": "a5105a31-78d8-4709-81d6-1aa6822ab86f;mammalia;carnivora;canidae;chrysocyon;brachyurus;maned wolf",
+      "score": 0.9675,
+      "source": "classifier"
+     }
+    },
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.9317,
+     "bbox": [
+      0.4309,
+      0.2224,
+      0.4153,
+      0.7193
+     ],
+     "raw_classifications": {
+      "classes": [
+       "a5105a31-78d8-4709-81d6-1aa6822ab86f;mammalia;carnivora;canidae;chrysocyon;brachyurus;maned wolf",
+       "b9aeb369-cc41-4303-9b95-edcd7bcc8ff6;mammalia;artiodactyla;cervidae;blastocerus;dichotomus;marsh deer"
+      ],
+      "scores": [
+       0.9861,
+       0.0105
+      ]
+     },
+     "processed_classification": {
+      "class": "a5105a31-78d8-4709-81d6-1aa6822ab86f;mammalia;carnivora;canidae;chrysocyon;brachyurus;maned wolf",
+      "score": 0.9861,
+      "source": "classifier"
+     }
+    }
+   ],
+   "model_version": "4.0.3a"
+  },
+  {
+   "filepath": "/home/losawa/Music/TCC/monitoramento-animais-tcc/monitoramento-animais/data/animals/images/test/loboGuara00000084.jpg",
+   "country": "BRA",
+   "detections": [
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.8733,
+     "bbox": [
+      0.0244,
+      0.0723,
+      0.9741,
+      0.7659
+     ],
+     "raw_classifications": {
+      "classes": [
+       "a5105a31-78d8-4709-81d6-1aa6822ab86f;mammalia;carnivora;canidae;chrysocyon;brachyurus;maned wolf",
+       "aaf3b049-36e6-46dd-9a07-8a580e9618b7;mammalia;carnivora;canidae;canis;latrans;coyote"
+      ],
+      "scores": [
+       0.4755,
+       0.2037
+      ]
+     },
+     "processed_classification": {
+      "class": "3184697f-51ad-4608-9a28-9edb5500159c;mammalia;carnivora;canidae;;;canine family",
+      "score": 0.8203,
+      "source": "classifier+rollup_to_family"
+     }
+    }
+   ],
+   "model_version": "4.0.3a"
+  },
+  {
+   "filepath": "/home/losawa/Music/TCC/monitoramento-animais-tcc/monitoramento-animais/data/animals/images/test/tamanduaBandeira00000008(1).jpg",
+   "country": "BRA",
+   "detections": [
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.7511,
+     "bbox": [
+      0.2691,
+      0.0054,
+      0.5512,
+      0.9929
+     ],
+     "raw_classifications": {
+      "classes": [
+       "2b98dad0-1e0e-4488-9cbe-9c4777dd9eca;mammalia;pilosa;myrmecophagidae;myrmecophaga;tridactyla;giant anteater",
+       "a4f40e31-17f6-45b7-8b9d-e32af92a24df;mammalia;carnivora;mustelidae;mellivora;capensis;honey badger"
+      ],
+      "scores": [
+       0.524,
+       0.1286
+      ]
+     },
+     "processed_classification": {
+      "class": "f2d233e3-80e3-433d-9687-e29ecc7a467a;mammalia;;;;;mammal",
+      "score": 0.8988,
+      "source": "classifier+rollup_to_class"
+     }
+    },
+    {
+     "category": "2",
+     "label": "human",
+     "conf": 0.5343,
+     "bbox": [
+      0.0,
+      0.0018,
+      0.6997,
+      0.9821
+     ],
+     "raw_classifications": {
+      "classes": [
+       "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+       "a4f40e31-17f6-45b7-8b9d-e32af92a24df;mammalia;carnivora;mustelidae;mellivora;capensis;honey badger"
+      ],
+      "scores": [
+       0.9103,
+       0.0205
+      ]
+     },
+     "processed_classification": {
+      "class": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+      "score": 0.9103,
+      "source": "classifier"
+     }
+    },
+    {
+     "category": "2",
+     "label": "human",
+     "conf": 0.0979,
+     "bbox": [
+      0.0747,
+      0.0036,
+      0.5365,
+      0.5
+     ]
+    },
+    {
+     "category": "2",
+     "label": "human",
+     "conf": 0.0304,
+     "bbox": [
+      0.5339,
+      0.0036,
+      0.454,
+      0.9911
+     ]
+    }
+   ],
+   "model_version": "4.0.3a"
+  },
+  {
+   "filepath": "/home/losawa/Music/TCC/monitoramento-animais-tcc/monitoramento-animais/data/animals/images/test/tamanduaBandeira00000010(1).jpg",
+   "country": "BRA",
+   "detections": [
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.6362,
+     "bbox": [
+      0.0,
+      0.1733,
+      0.8889,
+      0.63
+     ],
+     "raw_classifications": {
+      "classes": [
+       "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+       "2b98dad0-1e0e-4488-9cbe-9c4777dd9eca;mammalia;pilosa;myrmecophagidae;myrmecophaga;tridactyla;giant anteater"
+      ],
+      "scores": [
+       0.8541,
+       0.0877
+      ]
+     },
+     "processed_classification": {
+      "class": "d126f0ec-82dd-46f0-b76a-5985ff6bbc9b;mammalia;primates;hominidae;homo;;human",
+      "score": 0.8541,
+      "source": "classifier+rollup_to_genus"
+     }
+    },
+    {
+     "category": "2",
+     "label": "human",
+     "conf": 0.2432,
+     "bbox": [
+      0.0,
+      0.1867,
+      0.8933,
+      0.7733
+     ],
+     "raw_classifications": {
+      "classes": [
+       "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+       "2b98dad0-1e0e-4488-9cbe-9c4777dd9eca;mammalia;pilosa;myrmecophagidae;myrmecophaga;tridactyla;giant anteater"
+      ],
+      "scores": [
+       0.8046,
+       0.1241
+      ]
+     },
+     "processed_classification": {
+      "class": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+      "score": 0.8046,
+      "source": "classifier"
+     }
+    },
+    {
+     "category": "2",
+     "label": "human",
+     "conf": 0.1437,
+     "bbox": [
+      0.76,
+      0.0,
+      0.24,
+      0.4733
+     ],
+     "raw_classifications": {
+      "classes": [
+       "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+       "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank"
+      ],
+      "scores": [
+       0.8257,
+       0.1657
+      ]
+     },
+     "processed_classification": {
+      "class": "d126f0ec-82dd-46f0-b76a-5985ff6bbc9b;mammalia;primates;hominidae;homo;;human",
+      "score": 0.8257,
+      "source": "classifier+rollup_to_genus"
+     }
+    },
+    {
+     "category": "2",
+     "label": "human",
+     "conf": 0.1014,
+     "bbox": [
+      0.0,
+      0.28,
+      0.32,
+      0.5233
+     ],
+     "raw_classifications": {
+      "classes": [
+       "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+       "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank"
+      ],
+      "scores": [
+       0.9861,
+       0.0048
+      ]
+     },
+     "processed_classification": {
+      "class": "d126f0ec-82dd-46f0-b76a-5985ff6bbc9b;mammalia;primates;hominidae;homo;;human",
+      "score": 0.9861,
+      "source": "classifier+rollup_to_genus"
+     }
+    },
+    {
+     "category": "2",
+     "label": "human",
+     "conf": 0.0519,
+     "bbox": [
+      0.7067,
+      0.0,
+      0.2933,
+      0.95
+     ]
+    },
+    {
+     "category": "2",
+     "label": "human",
+     "conf": 0.0498,
+     "bbox": [
+      0.7689,
+      0.0,
+      0.2311,
+      0.21
+     ]
+    },
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.04,
+     "bbox": [
+      0.0,
+      0.4567,
+      1.0,
+      0.5433
+     ]
+    },
+    {
+     "category": "2",
+     "label": "human",
+     "conf": 0.0279,
+     "bbox": [
+      0.0,
+      0.2967,
+      0.0844,
+      0.23
+     ]
+    },
+    {
+     "category": "2",
+     "label": "human",
+     "conf": 0.0275,
+     "bbox": [
+      0.44,
+      0.8567,
+      0.5467,
+      0.1433
+     ]
+    },
+    {
+     "category": "2",
+     "label": "human",
+     "conf": 0.0178,
+     "bbox": [
+      0.0,
+      0.2533,
+      0.08,
+      0.6733
+     ]
+    },
+    {
+     "category": "2",
+     "label": "human",
+     "conf": 0.0102,
+     "bbox": [
+      0.4044,
+      0.0067,
+      0.5956,
+      0.7767
+     ]
+    }
+   ],
+   "model_version": "4.0.3a"
+  },
+  {
+   "filepath": "/home/losawa/Music/TCC/monitoramento-animais-tcc/monitoramento-animais/data/animals/images/test/tamanduaBandeira00000033(1).jpg",
+   "country": "BRA",
+   "detections": [
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.8281,
+     "bbox": [
+      0.0,
+      0.1127,
+      1.0,
+      0.7264
+     ],
+     "raw_classifications": {
+      "classes": [
+       "2b98dad0-1e0e-4488-9cbe-9c4777dd9eca;mammalia;pilosa;myrmecophagidae;myrmecophaga;tridactyla;giant anteater",
+       "a4f40e31-17f6-45b7-8b9d-e32af92a24df;mammalia;carnivora;mustelidae;mellivora;capensis;honey badger"
+      ],
+      "scores": [
+       0.9973,
+       0.0006
+      ]
+     },
+     "processed_classification": {
+      "class": "2b98dad0-1e0e-4488-9cbe-9c4777dd9eca;mammalia;pilosa;myrmecophagidae;myrmecophaga;tridactyla;giant anteater",
+      "score": 0.9973,
+      "source": "classifier"
+     }
+    },
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.0486,
+     "bbox": [
+      0.0667,
+      0.495,
+      0.4385,
+      0.336
+     ]
+    }
+   ],
+   "model_version": "4.0.3a"
+  },
+  {
+   "filepath": "/home/losawa/Music/TCC/monitoramento-animais-tcc/monitoramento-animais/data/animals/images/test/tamanduaBandeira00000040(1).jpg",
+   "country": "BRA",
+   "detections": [
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.9008,
+     "bbox": [
+      0.4375,
+      0.3926,
+      0.1203,
+      0.1088
+     ],
+     "raw_classifications": {
+      "classes": [
+       "aca65aaa-8c6d-4b69-94de-842b08b13bd6;mammalia;artiodactyla;bovidae;bos;taurus;domestic cattle",
+       "539ebd55-081b-429a-9ae6-5a6a0f6999d4;mammalia;artiodactyla;bovidae;bison;bison;american bison"
+      ],
+      "scores": [
+       0.2114,
+       0.2114
+      ]
+     },
+     "processed_classification": {
+      "class": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal",
+      "score": 0.8133,
+      "source": "classifier+rollup_to_kingdom"
+     }
+    },
+    {
+     "category": "1",
+     "label": "animal",
+     "conf": 0.0213,
+     "bbox": [
+      0.2266,
+      0.3926,
+      0.3359,
+      0.1883
+     ]
+    },
+    {
+     "category": "3",
+     "label": "vehicle",
+     "conf": 0.0141,
+     "bbox": [
+      0.7297,
+      0.2281,
+      0.0172,
+      0.0212
+     ]
+    }
+   ],
+   "model_version": "4.0.3a"
+  }
+ ]
+}

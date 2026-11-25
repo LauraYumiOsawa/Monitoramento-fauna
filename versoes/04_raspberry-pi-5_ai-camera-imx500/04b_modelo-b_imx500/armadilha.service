@@ -1,0 +1,20 @@
+# Serviço systemd da versão 04b (Raspberry Pi 5 + AI Camera (IMX500) · Modelo B — YOLOv8n presença (416) + MobileNetV2 (128) · IMX500 (detector de presença) + ONNX Runtime (classificador no Pi 5)) — arquitetura de energia A.
+# Instalação (no dispositivo, com o pacote em /opt/armadilha/04b):
+#   sudo cp armadilha.service /etc/systemd/system/armadilha-04b.service
+#   sudo systemctl daemon-reload && sudo systemctl enable --now armadilha-04b
+[Unit]
+Description=Armadilha fotográfica com IA local — versão 04b
+After=multi-user.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/opt/armadilha/04b
+ExecStart=/opt/armadilha/04b/executar.sh trap
+Restart=on-failure
+RestartSec=10
+# A câmera e o GPIO exigem os grupos video e gpio.
+SupplementaryGroups=video gpio
+
+[Install]
+WantedBy=multi-user.target

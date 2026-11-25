@@ -1,0 +1,81 @@
+# Gerado por versoes/gerador/gerar_versoes.py a partir de versoes/matriz.yaml e versoes/gerador/especificacoes.yaml. Edite as entradas e regenere.
+id: 08b
+nome: Orange Pi 5 · Modelo B — YOLOv8n presença (416) + MobileNetV2 (128) · RKNN (detector e classificador,
+  INT8)
+hardware: orangepi5
+modelo: modelo-b
+arquitetura_energia: A
+detector:
+  runtime: rknn
+  arquivo: modelos/b_416_split_rk3588.rknn
+  formato_saida: split
+  layout_saida: nchw
+  confianca: 0.3
+  iou: 0.4
+  nucleos_npu: '0'
+  entrada:
+  - 416
+  - 416
+  classes:
+    0: animal
+classificador:
+  runtime: rknn
+  arquivo: modelos/species_classifier_rk3588.rknn
+  nucleos_npu: '1'
+  entrada:
+  - 128
+  - 128
+  rotulos:
+  - anta
+  - tamandua_bandeira
+  - lobo_guara
+  - desconhecido
+  margem: 0.12
+runtime_b: config/runtime_b.yaml
+captura:
+  tipo: opencv
+  dispositivo: 0
+  largura: 1920
+  altura: 1080
+gatilho:
+  tipo: gpiod
+  chip: /dev/gpiochip1
+  linha: 3
+iluminacao_ir:
+  tipo: gpiod
+  chip: /dev/gpiochip1
+  pino: 4
+  modo: auto
+  noite_horas:
+  - 18
+  - 6
+evento:
+  quadros: 8
+  intervalo_s: 0.15
+  pausa_s: 10
+  min_hits: 3
+armazenamento:
+  pasta: dados
+  registro: dados/camtrap.sqlite3
+  salvar_vazias: true
+  qualidade_jpeg: 90
+implantacao:
+  deployment_id: dep-08b
+  latitude: 0.0
+  longitude: 0.0
+  local: PREENCHER antes do campo
+  camera_id: 08b
+  altura_m: null
+  instalado_por: null
+energia:
+  desligar_ao_final: false
+artefatos:
+- destino: modelos/b_416_split.onnx
+  exportar:
+    pesos: runs/modelo_b/presence_yolov8n_416/weights/best.pt
+    entrada:
+    - 416
+    - 416
+    cabeca: dividida
+- destino: modelos/species_classifier.onnx
+  origem: models/modelo_b/species_classifier.onnx

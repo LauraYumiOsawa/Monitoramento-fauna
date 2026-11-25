@@ -1,0 +1,300 @@
+# Dados dos candidatos do ranking (versões geradas). Lido por calcular_ranking.py.
+#
+# Todo número tem `tipo`:
+#   documentado — fabricante, loja ou medição publicada (fonte e data na linha);
+#   medido      — proxy medido no projeto em x86_64 (versoes/ranking/medicoes/*.json);
+#   estimado    — conta com premissa explícita (a premissa está na linha).
+# Coleta documental: 20–21/10/2026. Fontes completas em versoes/ranking/fontes/.
+
+cenario:
+  bateria_wh: 74.0          # power bank 20 000 mAh × 3,7 V (o mesmo pacote para todos)
+  fator_utilizavel: 1.0
+  eficiencia: 0.85          # conversão até a placa (mesmo η do exemplo da seção 7)
+  eventos_por_dia: 100      # central; sensibilidade 10 e 1000
+  sensibilidade_eventos: [10, 1000]
+  horizonte_dias: 730       # TCO em 2 anos
+  custo_visita_rs: 50.0     # premissa do TCO: cada troca/recarga de bateria = uma visita
+  sensibilidade_visita_rs: [20.0, 200.0]
+  escrita_s: 0.2            # gravação dos JPEG da rajada (premissa)
+
+cambio:
+  usd_brl: 5.2132
+  fonte: "PTAX venda de 28/09/2026 (Banco Central) — a mais recente encontrada na coleta"
+
+importacao:
+  frete_usd: 10.0           # premissa por pedido internacional
+  icms: 0.17                # SP; 20% em AC, AL, BA, CE, MG, PB, PI, RN, RR, SE
+  regra: >-
+    Remessa Conforme desde 12/05/2026 (MP 1.357/2026, Lei 15.502/2026): II 0% até US$ 50;
+    60% menos US$ 30 de US$ 50,01 a US$ 3.000; ICMS por dentro. Supõe plataforma certificada.
+  fonte: "Receita Federal, Tributação e Manual de Encomendas Internacionais (atualizados em set/2026)"
+
+# Itens comuns a toda armadilha completa (somados uma vez em cada candidato).
+comuns: [pir, caixa_ip66, microsd32, bateria_74wh, diversos]
+
+itens:
+  # ---- Raspberry Pi (RoboCore, a mesma fonte da tabela de custos da pesquisa [31])
+  pi5_4gb: {nome: "Raspberry Pi 5 4 GB", preco_rs: 1574.90, tipo: documentado,
+            fonte: "RoboCore, 20/10/2026 (esgotado); Orix R$ 1.349,90 e Alturion R$ 1.280,00 disponíveis"}
+  pi5_8gb: {nome: "Raspberry Pi 5 8 GB", preco_rs: 2529.90, tipo: documentado,
+            fonte: "RoboCore, 20/10/2026 (disponível)"}
+  pizero2w: {nome: "Raspberry Pi Zero 2 W", preco_rs: 199.90, tipo: documentado,
+             fonte: "RoboCore, 20/10/2026 (esgotado)"}
+  aihat13: {nome: "AI HAT+ 13 TOPS (Hailo-8L)", preco_rs: 899.90, tipo: documentado,
+            fonte: "RoboCore, 20/10/2026 (esgotado)"}
+  aihat26: {nome: "AI HAT+ 26 TOPS (Hailo-8)", preco_rs: 1399.90, tipo: documentado,
+            fonte: "RoboCore, 20/10/2026 (esgotado)"}
+  aihat2: {nome: "AI HAT+ 2 (Hailo-10H)", preco_rs: 1899.00, tipo: documentado,
+           fonte: "RoboCore, 20/10/2026 (esgotado)"}
+  aicamera: {nome: "Raspberry Pi AI Camera (IMX500)", preco_rs: 967.90, tipo: documentado,
+             fonte: "RoboCore, 20/10/2026 (disponível)"}
+  cm3_noir: {nome: "Camera Module 3 NoIR", preco_usd: 25.0, loja: raspberrypi, tipo: estimado,
+             fonte: "preço oficial Raspberry Pi; não encontrada à venda no Brasil (importação estimada)"}
+  cabo_cam: {nome: "Cabo de câmera 22→15 vias (Pi 5/Zero)", preco_rs: 15.00, tipo: documentado,
+             fonte: "RoboCore, 20/10/2026"}
+  cooler_pi5: {nome: "Active Cooler (Pi 5 em caixa fechada)", preco_rs: 49.90, tipo: documentado,
+               fonte: "RoboCore, 20/10/2026 (esgotado)"}
+  # ---- comuns
+  pir: {nome: "PIR HC-SR501", preco_rs: 8.90, tipo: documentado, fonte: "RoboCore, 21/10/2026"}
+  ir850: {nome: "Iluminador IR 850 nm (36 LEDs, 12 V)", preco_rs: 14.40, tipo: documentado,
+          fonte: "SatFrota, 21/10/2026"}
+  caixa_ip66: {nome: "Caixa IP66 Intelbras VBOX 1100 E", preco_rs: 23.72, tipo: documentado,
+               fonte: "Kabum, 21/10/2026"}
+  microsd32: {nome: "microSD 32 GB SanDisk", preco_rs: 126.00, tipo: documentado,
+              fonte: "RoboCore, 21/10/2026"}
+  bateria_74wh: {nome: "Power bank 20 000 mAh (74 Wh)", preco_rs: 298.90, tipo: documentado,
+                 fonte: "Kabum, Xiaomi PB2020MI, 21/10/2026"}
+  diversos: {nome: "Jumpers, MOSFET e conectores", preco_rs: 15.00, tipo: estimado,
+             fonte: "premissa"}
+  # ---- demais placas (importação estimada quando não há preço no Brasil)
+  maixcam: {nome: "Sipeed MaixCAM (kit com câmera)", preco_usd: 70.90, loja: sipeed, tipo: estimado,
+            fonte: "Spotpear (distribuidor), out/2026; sem loja brasileira"}
+  grove_v2: {nome: "Grove Vision AI Module V2", preco_usd: 15.99, loja: seeed, tipo: estimado,
+             fonte: "Seeed Studio, out/2026"}
+  ov5647_ir: {nome: "Câmera OV5647-160 IR", preco_usd: 12.90, loja: seeed, tipo: estimado,
+              fonte: "Seeed Studio, out/2026"}
+  xiao_s3_sense: {nome: "XIAO ESP32S3 Sense", preco_rs: 169.00, tipo: documentado,
+                  fonte: "RoboCore, 21/10/2026 (esgotado)"}
+  orangepi5_4gb: {nome: "Orange Pi 5 4 GB", preco_usd: 100.0, loja: orangepi, tipo: estimado,
+                  faixa_usd: [60.0, 270.0],
+                  fonte: "sem preço atual: lançamento US$ 60–75 (2022) e revenda UK £ 209,53 (jul/2026); premissa US$ 100"}
+  ov13850: {nome: "Câmera Orange Pi OV13850", preco_rs: 199.66, tipo: documentado,
+            fonte: "Amazon.com.br via resumo de busca (página não abriu) — não verificado"}
+  esp32s3eye: {nome: "ESP32-S3-EYE", preco_usd: 45.00, loja: digikey, tipo: estimado,
+               fonte: "DigiKey, out/2026"}
+  luckfox_max: {nome: "Luckfox Pico Max (RV1106G3)", preco_usd: 38.99, loja: luckfox, tipo: estimado,
+                fonte: "Luckfox (faixa US$ 32,99–38,99 para Pro/Max)"}
+  sc3336: {nome: "Câmera Luckfox SC3336", preco_usd: 8.99, loja: luckfox, tipo: estimado,
+           fonte: "Luckfox"}
+  nicla: {nome: "Arduino Nicla Vision", preco_usd: 80.20, loja: arduino, tipo: estimado,
+          fonte: "Arduino Store US; MakerHero R$ 1.014,90 em resumo de busca (não verificado)"}
+  jetson: {nome: "Jetson Orin Nano Super Dev Kit", preco_rs: 3499.90, tipo: documentado,
+           fonte: "RoboCore (esgotado); NVIDIA elevou o MSRP para US$ 399 em jul/2026"}
+  imx219_noir: {nome: "Câmera IMX219 NoIR (CSI)", preco_usd: 20.0, loja: generica, tipo: estimado,
+                fonte: "premissa"}
+
+# Perfis de energia por plataforma (reutilizados pelas versões).
+energia:
+  pi5:
+    espera_w: {valor: 3.3, tipo: documentado, fonte: "Pi 5 4 GB ocioso (Jeff Geerling, 2024); câmera parada entre eventos"}
+    ativo_cpu_w: {valor: 8.8, tipo: documentado, fonte: "Pi 5 com 4 núcleos em carga (CNX Software, 2023)"}
+    leve_w: {valor: 4.0, tipo: estimado, fonte: "Pi 5 com câmera ativa e CPU pouco carregada (premissa)"}
+    inicio_camera_s: {valor: 0.8, tipo: estimado, fonte: "partida do libcamera com a câmera parada (premissa)"}
+  pi5_hailo8l: {extra_espera_w: {valor: 0.3, tipo: estimado, fonte: "Hailo ocioso (premissa)"},
+                extra_ativo_w: {valor: 1.5, tipo: documentado, fonte: "Hailo-8L, potência típica 1,5 W"}}
+  pi5_hailo8: {extra_espera_w: {valor: 0.4, tipo: estimado, fonte: "Hailo ocioso (premissa)"},
+               extra_ativo_w: {valor: 2.5, tipo: documentado, fonte: "Hailo-8, potência típica 2,5 W"}}
+  pi5_hailo10h: {extra_espera_w: {valor: 0.4, tipo: estimado, fonte: "Hailo ocioso (premissa)"},
+                 extra_ativo_w: {valor: 2.5, tipo: documentado, fonte: "Hailo-10H, < 2,5 W típica"}}
+  pi5_imx500: {extra_espera_w: {valor: 1.2, tipo: estimado,
+                                fonte: "câmera sempre ligada com a rede rodando (consumo não documentado; premissa)"}}
+  pizero2w:
+    espera_w: {valor: 0.6, tipo: documentado, fonte: "Zero 2 W ocioso, Pi OS Lite (CNX Software, 2021)"}
+    ativo_cpu_w: {valor: 2.3, tipo: documentado, fonte: "Zero 2 W com 4 núcleos em carga (Jeff Geerling, 2021)"}
+    leve_w: {valor: 1.0, tipo: estimado, fonte: "câmera ativa, CPU pouco carregada (premissa)"}
+    inicio_camera_s: {valor: 1.2, tipo: estimado, fonte: "premissa"}
+  maixcam:
+    espera_w: {valor: 0.7, tipo: estimado, fonte: "chip SG2002 ~0,5 W típicos com vídeo e IA (datasheet) + placa; sem sono documentado"}
+    ativo_w: {valor: 1.0, tipo: estimado, fonte: "premissa"}
+  grove:
+    espera_w: {valor: 0.001, tipo: estimado, fonte: "XIAO em sono profundo + PIR; Grove sem alimentação (premissa)"}
+    ativo_w: {valor: 0.65, tipo: estimado, fonte: "Grove 0,35 W medido (Core Electronics) + XIAO ativo ~0,3 W"}
+    partida_s: {valor: 1.6, tipo: estimado, fonte: "despertar do XIAO + partida do Grove (não documentada; premissa)"}
+  orangepi5:
+    espera_w: {valor: 1.5, tipo: estimado, fonte: "1,0 W ocioso (Jeff Geerling, Armbian) + câmera USB aberta ~0,5 W (premissa)"}
+    ativo_w: {valor: 2.5, tipo: estimado, fonte: "ocioso + NPU (premissa)"}
+  esp32s3eye:
+    espera_w: {valor: 0.003, tipo: estimado, fonte: "ESP32-S3 7 µA + OV2640 em standby 600 µA + regulador e PIR (premissa)"}
+    ativo_w: {valor: 0.5, tipo: estimado, fonte: "ESP32-S3 dual-core 81–108 mA a 3,3 V + OV2640 125–140 mW (datasheets)"}
+    partida_s: {valor: 0.8, tipo: estimado, fonte: "saída do sono + iniciar câmera (premissa)"}
+  luckfox:
+    espera_w: {valor: 0.6, tipo: estimado, fonte: "consumo não documentado; Linux + ISP com câmera aberta (premissa)"}
+    ativo_w: {valor: 0.8, tipo: estimado, fonte: "premissa"}
+  nicla:
+    espera_w: {valor: 0.074, tipo: documentado, fonte: "~20 mA em sono após usar a câmera (fórum OpenMV) × 3,7 V"}
+    ativo_w: {valor: 0.39, tipo: documentado, fonte: "105 mA em captura (datasheet) × 3,7 V"}
+    partida_s: {valor: 0.3, tipo: estimado, fonte: "saída do lightsleep + câmera (premissa)"}
+  jetson:
+    espera_w: {valor: 5.0, tipo: documentado, fonte: "4,7 W ocioso (fórum NVIDIA, JetPack 6.2)"}
+    ativo_w: {valor: 10.0, tipo: estimado, fonte: "modo de 15 W (premissa)"}
+
+# Rubrica de integração/documentação (0–6, maior = mais fácil):
+#   conversao: 2 = roda o ONNX direto; 1 = export de uma linha documentado; 0 = toolchain externa
+#   api_python: 1 = Python no dispositivo; 0 = firmware/C++
+#   placa_unica: 1 = um conjunto empilhado; 0 = placa hospedeira separada
+#   exemplo_oficial: 1 = exemplo oficial do fabricante para a tarefa
+#   testado: 1 = caminho executado ponta a ponta neste projeto (simulação em x86)
+candidatos:
+  "01a": {papel: armadilha, energia: pi5, itens: [pi5_4gb, cm3_noir, cabo_cam, cooler_pi5, ir850],
+          inferencia_ms: {valor: 198.69, tipo: documentado, fonte: "Ultralytics, YOLOv8n ONNX 640 no Pi 5 (docs v8.3.0)"},
+          inferencia_w: cpu, quadros: 8, disparo: camera_parada, noturno: 2,
+          integracao: {conversao: 2, api_python: 1, placa_unica: 1, exemplo_oficial: 1, testado: 1},
+          robustez_c: {valor: 50, fonte: "Camera Module 3: 0–50 °C; Pi 5 não declara"},
+          proxy: a_640, presenca: a_640}
+  "01b": {papel: armadilha, energia: pi5, itens: [pi5_4gb, cm3_noir, cabo_cam, cooler_pi5, ir850],
+          inferencia_ms: {valor: 89.0, tipo: estimado, fonte: "198,69 ms × 3,415/8,085 GFLOPs (detector 416) + classificador ~5 ms"},
+          inferencia_w: cpu, quadros: 8, disparo: camera_parada, noturno: 2,
+          integracao: {conversao: 2, api_python: 1, placa_unica: 1, exemplo_oficial: 1, testado: 1},
+          robustez_c: {valor: 50, fonte: "Camera Module 3: 0–50 °C"},
+          proxy: b_416+mnv2, presenca: b_416}
+  "02a": {papel: armadilha, energia: pi5, extra: pi5_hailo8l,
+          itens: [pi5_4gb, aihat13, cm3_noir, cabo_cam, cooler_pi5, ir850],
+          inferencia_ms: {valor: 16.2, tipo: documentado, fonte: "YOLOv8n 61,9 FPS (b1) no Pi 5 + Hailo-8L (fórum oficial Hailo, 2026)"},
+          inferencia_w: acelerador, quadros: 8, disparo: camera_parada, noturno: 2,
+          integracao: {conversao: 1, api_python: 1, placa_unica: 1, exemplo_oficial: 1, testado: 0},
+          robustez_c: {valor: 50, fonte: "AI HAT+ e Camera Module 3: 0–50 °C"},
+          proxy: a_640_split_int8full, presenca: a_640_split_int8full}
+  "02b": {papel: armadilha, energia: pi5, extra: pi5_hailo8l,
+          itens: [pi5_4gb, aihat13, cm3_noir, cabo_cam, cooler_pi5, ir850],
+          inferencia_ms: {valor: 15.0, tipo: estimado, fonte: "detector 416 no Hailo-8L (~10 ms, escalado do YOLOv8n 640) + classificador na CPU ~5 ms"},
+          inferencia_w: acelerador, quadros: 8, disparo: camera_parada, noturno: 2,
+          integracao: {conversao: 1, api_python: 1, placa_unica: 1, exemplo_oficial: 1, testado: 0},
+          robustez_c: {valor: 50, fonte: "AI HAT+ e Camera Module 3: 0–50 °C"},
+          proxy: b_416_split_int8full+mnv2, presenca: b_416_split_int8full}
+  "03a": {papel: armadilha, energia: pi5, extra: pi5_hailo8,
+          itens: [pi5_4gb, aihat26, cm3_noir, cabo_cam, cooler_pi5, ir850],
+          inferencia_ms: {valor: 9.5, tipo: documentado, fonte: "~105 FPS (YOLO11n, hw_only, Pi 5 + Hailo-8; fórum oficial Hailo, 2026)"},
+          inferencia_w: acelerador, quadros: 8, disparo: camera_parada, noturno: 2,
+          integracao: {conversao: 1, api_python: 1, placa_unica: 1, exemplo_oficial: 1, testado: 0},
+          robustez_c: {valor: 50, fonte: "AI HAT+ e Camera Module 3: 0–50 °C"},
+          proxy: a_640_split_int8full, presenca: a_640_split_int8full}
+  "03b": {papel: armadilha, energia: pi5, extra: pi5_hailo8,
+          itens: [pi5_4gb, aihat26, cm3_noir, cabo_cam, cooler_pi5, ir850],
+          inferencia_ms: {valor: 11.0, tipo: estimado, fonte: "detector 416 no Hailo-8 (~6 ms) + classificador na CPU ~5 ms"},
+          inferencia_w: acelerador, quadros: 8, disparo: camera_parada, noturno: 2,
+          integracao: {conversao: 1, api_python: 1, placa_unica: 1, exemplo_oficial: 1, testado: 0},
+          robustez_c: {valor: 50, fonte: "AI HAT+ e Camera Module 3: 0–50 °C"},
+          proxy: b_416_split_int8full+mnv2, presenca: b_416_split_int8full}
+  "04a": {papel: armadilha, energia: pi5, extra: pi5_imx500,
+          itens: [pi5_4gb, aicamera, cooler_pi5],
+          inferencia_ms: {valor: 58.79, tipo: documentado, fonte: "YOLOv8n IMX500 640 INT8 (Ultralytics), no sensor, em paralelo à captura"},
+          inferencia_w: sensor, quadros: 8, disparo: camera_ligada, noturno: 0,
+          integracao: {conversao: 1, api_python: 1, placa_unica: 1, exemplo_oficial: 1, testado: 0},
+          robustez_c: {valor: 50, fonte: "AI Camera: 0–50 °C"},
+          proxy: a_640_split_int8full, presenca: a_640_split_int8full}
+  "04b": {papel: armadilha, energia: pi5, extra: pi5_imx500,
+          itens: [pi5_4gb, aicamera, cooler_pi5],
+          inferencia_ms: {valor: 63.0, tipo: estimado, fonte: "rede no sensor (~59 ms, em paralelo) + classificador na CPU ~5 ms"},
+          inferencia_w: sensor, quadros: 8, disparo: camera_ligada, noturno: 0,
+          integracao: {conversao: 1, api_python: 1, placa_unica: 1, exemplo_oficial: 1, testado: 0},
+          robustez_c: {valor: 50, fonte: "AI Camera: 0–50 °C"},
+          proxy: b_416_split_int8full+mnv2, presenca: b_416_split_int8full}
+  "05a": {papel: armadilha, energia: pizero2w, itens: [pizero2w, cm3_noir, cabo_cam, ir850],
+          inferencia_ms: {valor: 500.0, tipo: estimado,
+                          fonte: "Pi 5 (198,69 ms) × ~7 (A53 1 GHz vs A76 2,4 GHz) × 0,64 (512 px) × 0,53 (INT8, razão medida em x86)"},
+          inferencia_w: cpu, quadros: 5, disparo: camera_parada, noturno: 2,
+          integracao: {conversao: 2, api_python: 1, placa_unica: 1, exemplo_oficial: 1, testado: 1},
+          robustez_c: {valor: 50, fonte: "Zero 2 W −20 a 70 °C; Camera Module 3 0–50 °C"},
+          proxy: a_512_int8, presenca: a_512_int8}
+  "05b": {papel: armadilha, energia: pizero2w, itens: [pizero2w, cm3_noir, cabo_cam, ir850],
+          inferencia_ms: {valor: 300.0, tipo: estimado,
+                          fonte: "Pi 5 × ~7 × 0,42 (416 px) × 0,48 (INT8, razão medida) + classificador INT8"},
+          inferencia_w: cpu, quadros: 5, disparo: camera_parada, noturno: 2,
+          integracao: {conversao: 2, api_python: 1, placa_unica: 1, exemplo_oficial: 1, testado: 1},
+          robustez_c: {valor: 50, fonte: "Zero 2 W −20 a 70 °C; Camera Module 3 0–50 °C"},
+          proxy: b_416_int8+mnv2_int8, presenca: b_416_int8}
+  "06a": {papel: armadilha, energia: maixcam, itens: [maixcam],
+          inferencia_ms: {valor: 12.0, tipo: estimado,
+                          fonte: "YOLO11n 320×224 a 120 FPS na MaixCAM (Sipeed), escalado por GFLOPs para YOLOv8n 224×320"},
+          inferencia_w: placa, quadros: 8, disparo: camera_ligada, noturno: 1,
+          integracao: {conversao: 0, api_python: 1, placa_unica: 1, exemplo_oficial: 1, testado: 0},
+          robustez_c: {valor: 70, fonte: "SG2002 −30 a 70 °C (só o chip)"},
+          proxy: a_224x320_int8, presenca: a_224x320_int8}
+  "06b": {papel: armadilha, energia: maixcam, itens: [maixcam],
+          inferencia_ms: {valor: 15.0, tipo: estimado, fonte: "detector 224×320 (~12 ms) + classificador na NPU (~3 ms)"},
+          inferencia_w: placa, quadros: 8, disparo: camera_ligada, noturno: 1,
+          integracao: {conversao: 0, api_python: 1, placa_unica: 1, exemplo_oficial: 1, testado: 0},
+          robustez_c: {valor: 70, fonte: "SG2002 −30 a 70 °C (só o chip)"},
+          proxy: b_224x320_int8+mnv2_int8, presenca: b_224x320_int8}
+  "07a": {papel: armadilha, energia: grove, itens: [grove_v2, ov5647_ir, xiao_s3_sense, ir850],
+          inferencia_ms: {valor: 71.0, tipo: estimado,
+                          fonte: "YOLOv8 192 px a ~25 FPS (Core Electronics) × (256/192)²"},
+          inferencia_w: placa, quadros: 8, disparo: partida, noturno: 2,
+          intervalo_s: 0.5,  # JPEG em base64 pelo I2C a 400 kHz a cada invocação (premissa)
+          integracao: {conversao: 0, api_python: 0, placa_unica: 0, exemplo_oficial: 1, testado: 0},
+          robustez_c: {valor: 85, fonte: "HX6538 −40 a 85 °C (só o chip)"},
+          proxy: a_256_int8, presenca: a_256_int8}
+  "08a": {papel: armadilha, energia: orangepi5, itens: [orangepi5_4gb, ov13850],
+          inferencia_ms: {valor: 13.1, tipo: documentado, fonte: "YOLOv8n INT8 640 a 76,3 FPS, 1 núcleo do RK3588 (rknn_model_zoo)"},
+          inferencia_w: placa, quadros: 8, disparo: camera_ligada, noturno: 1,
+          integracao: {conversao: 1, api_python: 1, placa_unica: 1, exemplo_oficial: 1, testado: 0},
+          robustez_c: null,
+          proxy: a_640_split_int8full, presenca: a_640_split_int8full}
+  "08b": {papel: armadilha, energia: orangepi5, itens: [orangepi5_4gb, ov13850],
+          inferencia_ms: {valor: 7.0, tipo: estimado, fonte: "detector 416 (~5,5 ms, escalado) + MobileNetV2 128 na NPU (~1 ms)"},
+          inferencia_w: placa, quadros: 8, disparo: camera_ligada, noturno: 1,
+          integracao: {conversao: 1, api_python: 1, placa_unica: 1, exemplo_oficial: 1, testado: 0},
+          robustez_c: null,
+          proxy: b_416_split_int8full+mnv2_int8, presenca: b_416_split_int8full}
+  "09a": {papel: armadilha, energia: esp32s3eye, itens: [esp32s3eye],
+          inferencia_ms: {valor: 170.0, tipo: estimado,
+                          fonte: "MobileNetV2 224 a 353,5 ms (ESP-DL) × (128/224)² + decodificação JPEG 1/8 (~50 ms, premissa)"},
+          inferencia_w: placa, quadros: 3, disparo: partida, noturno: 1,
+          integracao: {conversao: 0, api_python: 0, placa_unica: 1, exemplo_oficial: 1, testado: 0},
+          robustez_c: {valor: 50, fonte: "OV2640: imagem estável de 0 a 50 °C; ESP32-S3R8 até 65 °C"},
+          proxy: quadro_inteiro_mnv2_int8, presenca: quadro_inteiro_mnv2_int8}
+  "10a": {papel: armadilha, energia: luckfox, itens: [luckfox_max, sc3336],
+          inferencia_ms: {valor: 20.0, tipo: estimado,
+                          fonte: "YOLOv5s 640 ~100 ms no RV1106 (fórum) escalado para YOLOv8n 320 (2,02 GFLOPs) + DFL na CPU"},
+          inferencia_w: placa, quadros: 8, disparo: camera_ligada, noturno: 1,
+          integracao: {conversao: 1, api_python: 0, placa_unica: 1, exemplo_oficial: 1, testado: 0},
+          robustez_c: null,
+          proxy: a_320_split_int8full, presenca: a_320_split_int8full}
+  "11a": {papel: armadilha, energia: nicla, itens: [nicla],
+          inferencia_ms: {valor: 200.0, tipo: estimado,
+                          fonte: "ShuffleNetV2-x0.5 128 (0,028 GFLOPs) no Cortex-M7 a 480 MHz (premissa)"},
+          inferencia_w: placa, quadros: 3, disparo: partida, noturno: 1,
+          integracao: {conversao: 0, api_python: 1, placa_unica: 1, exemplo_oficial: 1, testado: 0},
+          robustez_c: {valor: 85, fonte: "Nicla Vision −40 a 85 °C (datasheet da placa)"},
+          proxy: quadro_inteiro_shufflenet_int8, presenca: quadro_inteiro_shufflenet_int8}
+  "12a": {papel: armadilha, energia: pi5, extra: pi5_hailo10h,
+          itens: [pi5_4gb, aihat2, cm3_noir, cabo_cam, cooler_pi5, ir850],
+          inferencia_ms: {valor: 12.0, tipo: estimado, fonte: "visão \"comparável ao HAT+ de 26 TOPS\" (Raspberry Pi); premissa entre Hailo-8 e 8L"},
+          inferencia_w: acelerador, quadros: 8, disparo: camera_parada, noturno: 2,
+          integracao: {conversao: 1, api_python: 1, placa_unica: 1, exemplo_oficial: 1, testado: 0},
+          robustez_c: {valor: 50, fonte: "Camera Module 3: 0–50 °C; AI HAT+ 2 não declara"},
+          proxy: a_640_split_int8full, presenca: a_640_split_int8full}
+  "12b": {papel: armadilha, energia: pi5, extra: pi5_hailo10h,
+          itens: [pi5_4gb, aihat2, cm3_noir, cabo_cam, cooler_pi5, ir850],
+          inferencia_ms: {valor: 13.0, tipo: estimado, fonte: "detector 416 (~8 ms) + classificador na CPU ~5 ms"},
+          inferencia_w: acelerador, quadros: 8, disparo: camera_parada, noturno: 2,
+          integracao: {conversao: 1, api_python: 1, placa_unica: 1, exemplo_oficial: 1, testado: 0},
+          robustez_c: {valor: 50, fonte: "Camera Module 3: 0–50 °C"},
+          proxy: b_416_split_int8full+mnv2, presenca: b_416_split_int8full}
+  # ---- referência e estações de lote: fora do ranking de armadilha completa
+  "13a": {papel: referencia, energia: jetson, itens: [jetson, imx219_noir, ir850],
+          inferencia_ms: {valor: 4.53, tipo: documentado, fonte: "YOLO11n TensorRT FP16 640 (Ultralytics, Orin Nano Super)"},
+          inferencia_w: placa, quadros: 8, disparo: camera_ligada, noturno: 2,
+          integracao: {conversao: 2, api_python: 1, placa_unica: 1, exemplo_oficial: 1, testado: 1},
+          robustez_c: null, proxy: a_640, presenca: a_640}
+  "13b": {papel: referencia, energia: jetson, itens: [jetson, imx219_noir, ir850],
+          inferencia_ms: {valor: 4.0, tipo: estimado, fonte: "detector 416 + classificador, TensorRT FP16 (escalado)"},
+          inferencia_w: placa, quadros: 8, disparo: camera_ligada, noturno: 2,
+          integracao: {conversao: 2, api_python: 1, placa_unica: 1, exemplo_oficial: 1, testado: 1},
+          robustez_c: null, proxy: b_416+mnv2, presenca: b_416}
+  "01c": {papel: lote, hardware: [pi5_8gb, microsd32],
+          lote_s_por_imagem: {valor: 15.0, tipo: estimado, fonte: "2,3 s/imagem medidos em x86 (i5-1235U, 12 threads) × ~6,5 (Pi 5, premissa)"}}
+  "08c": {papel: lote, hardware: [orangepi5_4gb, microsd32],
+          lote_s_por_imagem: {valor: 12.0, tipo: estimado, fonte: "2,3 s/imagem em x86 × ~5 (RK3588S, 8 núcleos; premissa)"}}
+  "13c": {papel: lote, hardware: [jetson],
+          lote_s_por_imagem: {valor: 0.5, tipo: estimado, fonte: "GPU; o SpeciesNet carrega em 0,96 s com CUDA contra 9,45 s em CPU (README) — premissa"}}

@@ -1,0 +1,22 @@
+# O .gitignore da raiz ignora *.json e *.csv; aqui eles são evidência do TCC
+# (medições, resultado do ranking, configurações) e devem ser versionados.
+!*.json
+!*.csv
+
+# Artefatos gerados: modelos convertidos, dados de execução e pacotes.
+*.rknn
+*.hef
+*.cvimodel
+*.espdl
+*.rpk
+*.npz
+*.mlir
+packerOut.zip
+cache_trt/
+dados/
+dist/
+build/
+instalar/
+comum/modelos/
+**/modelos/dataset_*.txt
+**/modelos/tflite/

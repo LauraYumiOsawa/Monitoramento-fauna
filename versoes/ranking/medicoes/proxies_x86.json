@@ -1,0 +1,2093 @@
+{
+  "gerado_em": "2026-10-21T15:37:48.107471+00:00",
+  "ambiente": {
+    "cpu": "x86_64",
+    "plataforma": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
+    "python": "3.12.15",
+    "onnxruntime": "1.28.0"
+  },
+  "aviso": "Proxy em x86_64 com ONNX Runtime CPU. Acurácia no split test (18 imagens, 20 caixas): uma caixa vale 5 pontos de recall. Latência vale só como razão.",
+  "modelos": {
+    "a_192": {
+      "arquivo": "versoes/comum/modelos/a_192.onnx",
+      "tamanho_mb": 11.553,
+      "sha256": "79207861d5ca9f359d01cb498c6305152b41cca0898aa82b797d325aff8a6ce8"
+    },
+    "a_192_int8": {
+      "arquivo": "versoes/comum/modelos/a_192_int8.onnx",
+      "tamanho_mb": 3.141,
+      "sha256": "31e739515a65a9af100d7effb54383164c289f4c24be3fbf18b0fd2cda370fa2"
+    },
+    "a_224": {
+      "arquivo": "versoes/comum/modelos/a_224.onnx",
+      "tamanho_mb": 11.558,
+      "sha256": "07981e787165a3f550c6f8a579d7d33a2be233244296a3a5185e91e895455cc7"
+    },
+    "a_224_int8": {
+      "arquivo": "versoes/comum/modelos/a_224_int8.onnx",
+      "tamanho_mb": 3.146,
+      "sha256": "320763351d60d24e07d2e868e6a0cea6d7bab367cb7c7a75b755553600e565ca"
+    },
+    "a_224x320": {
+      "arquivo": "versoes/comum/modelos/a_224x320.onnx",
+      "tamanho_mb": 11.566,
+      "sha256": "ea507b4e5cfb6bcb5ff0b70cda3b5b86f00e2962c78b7561599b599d0e83b517"
+    },
+    "a_224x320_int8": {
+      "arquivo": "versoes/comum/modelos/a_224x320_int8.onnx",
+      "tamanho_mb": 3.154,
+      "sha256": "f5e7d356acdb8a8b8ecf2fc377dc7b064da0e1f99b5955089ad83cca545b826a"
+    },
+    "a_256": {
+      "arquivo": "versoes/comum/modelos/a_256.onnx",
+      "tamanho_mb": 11.564,
+      "sha256": "5f99d79e52016d629d8777b53fa6e7b1668b7bd2d231e3d5d07c3498f3b7314a"
+    },
+    "a_256_int8": {
+      "arquivo": "versoes/comum/modelos/a_256_int8.onnx",
+      "tamanho_mb": 3.152,
+      "sha256": "ff3d4889b0c5db5e86d41ccf29181e215d68b988bbc80999411e9911430a48bb"
+    },
+    "a_320": {
+      "arquivo": "versoes/comum/modelos/a_320.onnx",
+      "tamanho_mb": 11.578,
+      "sha256": "05a94979cf710ec4a86e3d8a0fbf89aea79fdbce092570fc76b8f07cf964f089"
+    },
+    "a_320_int8": {
+      "arquivo": "versoes/comum/modelos/a_320_int8.onnx",
+      "tamanho_mb": 3.166,
+      "sha256": "2d7215265f211b029ab494a40582076e1f252a0943d29e95f4382e9fa835cb5c"
+    },
+    "a_320_split": {
+      "arquivo": "versoes/comum/modelos/a_320_split.onnx",
+      "tamanho_mb": 11.517,
+      "sha256": "786ae97c2ac606bef84b9f1b8a9452ed910a122411b945742a368566d90098c2"
+    },
+    "a_320_split_int8full": {
+      "arquivo": "versoes/comum/modelos/a_320_split_int8full.onnx",
+      "tamanho_mb": 3.185,
+      "sha256": "db9d3b9daedc3a933316a17e0e5e5a9060437da666eeb4eb8a614ba09c7ce1bd"
+    },
+    "a_512": {
+      "arquivo": "versoes/comum/modelos/a_512.onnx",
+      "tamanho_mb": 11.641,
+      "sha256": "71b3ba3cb2cc00745b368297b386b5c5ea5208450135227d9c064b98894f06e2"
+    },
+    "a_512_int8": {
+      "arquivo": "versoes/comum/modelos/a_512_int8.onnx",
+      "tamanho_mb": 3.229,
+      "sha256": "e772822486d3bf26d223d1a1e51d536baca7d34456c17d74e2dcc84f5752738f"
+    },
+    "a_640": {
+      "arquivo": "models/animal_detector.onnx",
+      "tamanho_mb": 11.699,
+      "sha256": "fcd6994ff08742113215f62b3f3dc464d423aef1f98dd93080b7946f1958cc4a"
+    },
+    "a_640_int8": {
+      "arquivo": "versoes/comum/modelos/a_640_int8.onnx",
+      "tamanho_mb": 3.286,
+      "sha256": "05ccd2964969d0a57d9510442ebc7b0af7523793a208cac199f5429823b0648e"
+    },
+    "a_640_split": {
+      "arquivo": "versoes/comum/modelos/a_640_split.onnx",
+      "tamanho_mb": 11.517,
+      "sha256": "9a7983ec3d91802bb87e610de2030932735bcdf58471f69152a29740514aac6a"
+    },
+    "a_640_split_int8full": {
+      "arquivo": "versoes/comum/modelos/a_640_split_int8full.onnx",
+      "tamanho_mb": 3.185,
+      "sha256": "e02095a774f2c4ab8c7ca95092f759dd7dc68a5bf24f0f56c8cf0d78710cc0d1"
+    },
+    "b_192": {
+      "arquivo": "versoes/comum/modelos/b_192.onnx",
+      "tamanho_mb": 11.551,
+      "sha256": "dd1bda1848c56ee2cfff9b903bcc47ca96aa37514c15488a05fdd2ce537b3582"
+    },
+    "b_192_int8": {
+      "arquivo": "versoes/comum/modelos/b_192_int8.onnx",
+      "tamanho_mb": 3.14,
+      "sha256": "89a7a0efdb63f6b237f8cc38cfab34be712ac0ab69d48d002cdead8cd8f2cadd"
+    },
+    "b_224x320": {
+      "arquivo": "versoes/comum/modelos/b_224x320.onnx",
+      "tamanho_mb": 11.565,
+      "sha256": "2f957eec06845546165e31053f21e08ec0bc73aed99d218af39490a6cb2a9f59"
+    },
+    "b_224x320_int8": {
+      "arquivo": "versoes/comum/modelos/b_224x320_int8.onnx",
+      "tamanho_mb": 3.154,
+      "sha256": "11ac4cfbc0e38afffcf7d4f7b25ae8bf16c3b1a26861edb0ba5a5b1c90ca7cce"
+    },
+    "b_320": {
+      "arquivo": "versoes/comum/modelos/b_320.onnx",
+      "tamanho_mb": 11.577,
+      "sha256": "f0b876928c8d767834c30b8d909252b2409e21abe2f215aa2e7548e7bb37b561"
+    },
+    "b_320_int8": {
+      "arquivo": "versoes/comum/modelos/b_320_int8.onnx",
+      "tamanho_mb": 3.166,
+      "sha256": "5e32716a5eedc39fd91a7f5fc4dd98b6fb2e0bb3cb4e0fa2a41c022e173e6b8d"
+    },
+    "b_320_split": {
+      "arquivo": "versoes/comum/modelos/b_320_split.onnx",
+      "tamanho_mb": 11.516,
+      "sha256": "5994160d7faab0fffa5e82ada94bf1476a0e82659a121827ae2868da52304042"
+    },
+    "b_320_split_int8full": {
+      "arquivo": "versoes/comum/modelos/b_320_split_int8full.onnx",
+      "tamanho_mb": 3.184,
+      "sha256": "de8b71490cc0c4e7acd244d731d64e394afc53cceb8a6592595234998bfa97eb"
+    },
+    "b_416": {
+      "arquivo": "models/modelo_b/presence_detector.onnx",
+      "tamanho_mb": 11.605,
+      "sha256": "5eeb0258e71516bc7c440b06c234feaa0dd57a9a16e5ce263071b917efdb10f5"
+    },
+    "b_416_int8": {
+      "arquivo": "models/modelo_b/presence_detector_int8.onnx",
+      "tamanho_mb": 3.193,
+      "sha256": "5ff3c9bc346dbd8cef4281e01e92fcd717b795292c3cc7cfff7866efedc0976c"
+    },
+    "b_416_split": {
+      "arquivo": "versoes/comum/modelos/b_416_split.onnx",
+      "tamanho_mb": 11.516,
+      "sha256": "9c16dde78f942bb5abf0f3b2f923c3095a29d2047a32d8ae4043f9ce148211f5"
+    },
+    "b_416_split_int8full": {
+      "arquivo": "versoes/comum/modelos/b_416_split_int8full.onnx",
+      "tamanho_mb": 3.184,
+      "sha256": "c6c3aae83111fdd1a95f83118275a8fb24f0e06bfcf19724177a3b367d8c0e51"
+    }
+  },
+  "acuracia": {
+    "a_640": {
+      "map50": 0.8424,
+      "precisao": 0.8947,
+      "recall": 0.85,
+      "f1": 0.8718,
+      "vp": 17,
+      "fp": 2,
+      "fn": 3,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            6,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            5,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            6,
+            1
+          ],
+          [
+            1,
+            1,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "a_640_int8": {
+      "map50": 0.8424,
+      "precisao": 0.85,
+      "recall": 0.85,
+      "f1": 0.85,
+      "vp": 17,
+      "fp": 3,
+      "fn": 3,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            6,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            5,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            6,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "a_512": {
+      "map50": 0.8399,
+      "precisao": 0.8947,
+      "recall": 0.85,
+      "f1": 0.8718,
+      "vp": 17,
+      "fp": 2,
+      "fn": 3,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            5,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            7,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "a_512_int8": {
+      "map50": 0.7923,
+      "precisao": 0.9412,
+      "recall": 0.8,
+      "f1": 0.8649,
+      "vp": 16,
+      "fp": 1,
+      "fn": 4,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            5,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            6,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "a_320": {
+      "map50": 0.7381,
+      "precisao": 0.9375,
+      "recall": 0.75,
+      "f1": 0.8333,
+      "vp": 15,
+      "fp": 1,
+      "fn": 5,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            3,
+            0,
+            3
+          ],
+          [
+            0,
+            0,
+            7,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "a_320_int8": {
+      "map50": 0.6905,
+      "precisao": 1.0,
+      "recall": 0.7,
+      "f1": 0.8235,
+      "vp": 14,
+      "fp": 0,
+      "fn": 6,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            3,
+            0,
+            3
+          ],
+          [
+            0,
+            0,
+            6,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "a_224x320": {
+      "map50": 0.7381,
+      "precisao": 1.0,
+      "recall": 0.75,
+      "f1": 0.8571,
+      "vp": 15,
+      "fp": 0,
+      "fn": 5,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            3,
+            0,
+            3
+          ],
+          [
+            0,
+            0,
+            7,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "a_224x320_int8": {
+      "map50": 0.746,
+      "precisao": 1.0,
+      "recall": 0.75,
+      "f1": 0.8571,
+      "vp": 15,
+      "fp": 0,
+      "fn": 5,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            4,
+            0,
+            2
+          ],
+          [
+            0,
+            0,
+            6,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "a_256": {
+      "map50": 0.5952,
+      "precisao": 0.9231,
+      "recall": 0.6,
+      "f1": 0.7273,
+      "vp": 12,
+      "fp": 1,
+      "fn": 8,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            3,
+            0,
+            3
+          ],
+          [
+            0,
+            0,
+            4,
+            3
+          ],
+          [
+            0,
+            1,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "a_256_int8": {
+      "map50": 0.5397,
+      "precisao": 0.7857,
+      "recall": 0.55,
+      "f1": 0.6471,
+      "vp": 11,
+      "fp": 3,
+      "fn": 9,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            0,
+            0,
+            2
+          ],
+          [
+            1,
+            2,
+            0,
+            3
+          ],
+          [
+            0,
+            0,
+            4,
+            3
+          ],
+          [
+            0,
+            1,
+            1,
+            0
+          ]
+        ]
+      }
+    },
+    "a_224": {
+      "map50": 0.5212,
+      "precisao": 0.8462,
+      "recall": 0.55,
+      "f1": 0.6667,
+      "vp": 11,
+      "fp": 2,
+      "fn": 9,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            2,
+            0,
+            4
+          ],
+          [
+            0,
+            0,
+            4,
+            3
+          ],
+          [
+            1,
+            1,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "a_224_int8": {
+      "map50": 0.4286,
+      "precisao": 0.6923,
+      "recall": 0.45,
+      "f1": 0.5455,
+      "vp": 9,
+      "fp": 4,
+      "fn": 11,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            0,
+            0,
+            2
+          ],
+          [
+            1,
+            0,
+            0,
+            5
+          ],
+          [
+            1,
+            0,
+            4,
+            2
+          ],
+          [
+            1,
+            1,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "a_192": {
+      "map50": 0.3016,
+      "precisao": 0.75,
+      "recall": 0.3,
+      "f1": 0.4286,
+      "vp": 6,
+      "fp": 2,
+      "fn": 14,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            3,
+            0,
+            0,
+            4
+          ],
+          [
+            0,
+            2,
+            0,
+            4
+          ],
+          [
+            1,
+            0,
+            1,
+            5
+          ],
+          [
+            1,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "a_192_int8": {
+      "map50": 0.246,
+      "precisao": 0.7143,
+      "recall": 0.25,
+      "f1": 0.3704,
+      "vp": 5,
+      "fp": 2,
+      "fn": 15,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            3,
+            0,
+            0,
+            4
+          ],
+          [
+            1,
+            1,
+            0,
+            4
+          ],
+          [
+            1,
+            0,
+            1,
+            5
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "a_640_split": {
+      "map50": 0.8424,
+      "precisao": 0.8947,
+      "recall": 0.85,
+      "f1": 0.8718,
+      "vp": 17,
+      "fp": 2,
+      "fn": 3,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            6,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            5,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            6,
+            1
+          ],
+          [
+            1,
+            1,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "a_640_split_int8full": {
+      "map50": 0.8492,
+      "precisao": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "vp": 16,
+      "fp": 4,
+      "fn": 4,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            5,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            6,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "a_320_split": {
+      "map50": 0.7381,
+      "precisao": 0.9375,
+      "recall": 0.75,
+      "f1": 0.8333,
+      "vp": 15,
+      "fp": 1,
+      "fn": 5,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            3,
+            0,
+            3
+          ],
+          [
+            0,
+            0,
+            7,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "a_320_split_int8full": {
+      "map50": 0.6905,
+      "precisao": 1.0,
+      "recall": 0.7,
+      "f1": 0.8235,
+      "vp": 14,
+      "fp": 0,
+      "fn": 6,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            3,
+            0,
+            3
+          ],
+          [
+            0,
+            0,
+            6,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "b_416+mnv2": {
+      "map50": 0.8968,
+      "precisao": 1.0,
+      "recall": 0.9,
+      "f1": 0.9474,
+      "vp": 18,
+      "fp": 0,
+      "fn": 2,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            6,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            5,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            7,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "b_416_int8+mnv2_int8": {
+      "map50": 0.8016,
+      "precisao": 0.8889,
+      "recall": 0.8,
+      "f1": 0.8421,
+      "vp": 16,
+      "fp": 2,
+      "fn": 4,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            5,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "b_416_int8+mnv2": {
+      "map50": 0.7937,
+      "precisao": 0.9412,
+      "recall": 0.8,
+      "f1": 0.8649,
+      "vp": 16,
+      "fp": 1,
+      "fn": 4,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            4,
+            0,
+            2
+          ],
+          [
+            0,
+            0,
+            7,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "b_416+shufflenet_int8": {
+      "map50": 0.6984,
+      "precisao": 0.8235,
+      "recall": 0.7,
+      "f1": 0.7568,
+      "vp": 14,
+      "fp": 3,
+      "fn": 6,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            4,
+            2,
+            0,
+            1
+          ],
+          [
+            0,
+            4,
+            0,
+            2
+          ],
+          [
+            0,
+            1,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "b_416_split+mnv2": {
+      "map50": 0.8968,
+      "precisao": 1.0,
+      "recall": 0.9,
+      "f1": 0.9474,
+      "vp": 18,
+      "fp": 0,
+      "fn": 2,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            6,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            5,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            7,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "b_416_split_int8full+mnv2_int8": {
+      "map50": 0.7646,
+      "precisao": 0.8889,
+      "recall": 0.8,
+      "f1": 0.8421,
+      "vp": 16,
+      "fp": 2,
+      "fn": 4,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            5,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "b_416_split_int8full+mnv2": {
+      "map50": 0.7937,
+      "precisao": 0.9412,
+      "recall": 0.8,
+      "f1": 0.8649,
+      "vp": 16,
+      "fp": 1,
+      "fn": 4,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            4,
+            0,
+            2
+          ],
+          [
+            0,
+            0,
+            7,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "b_320_int8+mnv2_int8": {
+      "map50": 0.8968,
+      "precisao": 0.9412,
+      "recall": 0.8,
+      "f1": 0.8649,
+      "vp": 16,
+      "fp": 1,
+      "fn": 4,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            5,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            6,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "b_320_split_int8full+mnv2_int8": {
+      "map50": 0.8399,
+      "precisao": 0.9412,
+      "recall": 0.8,
+      "f1": 0.8649,
+      "vp": 16,
+      "fp": 1,
+      "fn": 4,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            5,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            6,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "b_224x320_int8+mnv2_int8": {
+      "map50": 0.9444,
+      "precisao": 1.0,
+      "recall": 0.8,
+      "f1": 0.8889,
+      "vp": 16,
+      "fp": 0,
+      "fn": 4,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            5,
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            5,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            6,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "b_192_int8+mnv2_int8": {
+      "map50": 0.6873,
+      "precisao": 0.8125,
+      "recall": 0.65,
+      "f1": 0.7222,
+      "vp": 13,
+      "fp": 3,
+      "fn": 7,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            3,
+            2,
+            0,
+            2
+          ],
+          [
+            0,
+            4,
+            0,
+            2
+          ],
+          [
+            0,
+            1,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "b_192_int8+shufflenet_int8": {
+      "map50": 0.6778,
+      "precisao": 0.8667,
+      "recall": 0.65,
+      "f1": 0.7429,
+      "vp": 13,
+      "fp": 2,
+      "fn": 7,
+      "confusao": {
+        "rows": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "fundo"
+        ],
+        "columns": [
+          "anta",
+          "tamandua_bandeira",
+          "lobo_guara",
+          "nao_detectado"
+        ],
+        "matrix": [
+          [
+            3,
+            2,
+            0,
+            2
+          ],
+          [
+            0,
+            4,
+            0,
+            2
+          ],
+          [
+            0,
+            0,
+            6,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "quadro_inteiro_mnv2": {
+      "imagens": 18,
+      "acuracia": 0.7222,
+      "previsto_desconhecido": 2
+    },
+    "quadro_inteiro_mnv2_int8": {
+      "imagens": 18,
+      "acuracia": 0.7222,
+      "previsto_desconhecido": 2
+    },
+    "quadro_inteiro_shufflenet": {
+      "imagens": 18,
+      "acuracia": 0.6111,
+      "previsto_desconhecido": 2
+    },
+    "quadro_inteiro_shufflenet_int8": {
+      "imagens": 18,
+      "acuracia": 0.6111,
+      "previsto_desconhecido": 2
+    }
+  },
+  "equivalencia_cabeca_dividida": {
+    "a_640": {
+      "imagens": 18,
+      "imagens_com_conjunto_diferente": 0,
+      "maior_diferenca_caixa_px": 0.0002,
+      "maior_diferenca_escore": 0.0
+    },
+    "b_416": {
+      "imagens": 18,
+      "imagens_com_conjunto_diferente": 0,
+      "maior_diferenca_caixa_px": 0.0004,
+      "maior_diferenca_escore": 0.0
+    }
+  },
+  "latencia_x86": {
+    "a_192": {
+      "1_thread": {
+        "media_ms": 13.43,
+        "p50_ms": 13.11,
+        "p95_ms": 16.827
+      },
+      "4_threads": {
+        "media_ms": 5.713,
+        "p50_ms": 5.278,
+        "p95_ms": 6.779
+      }
+    },
+    "a_192_int8": {
+      "1_thread": {
+        "media_ms": 5.93,
+        "p50_ms": 5.886,
+        "p95_ms": 6.022
+      },
+      "4_threads": {
+        "media_ms": 4.572,
+        "p50_ms": 4.746,
+        "p95_ms": 4.865
+      }
+    },
+    "a_224": {
+      "1_thread": {
+        "media_ms": 17.465,
+        "p50_ms": 17.404,
+        "p95_ms": 17.778
+      },
+      "4_threads": {
+        "media_ms": 6.924,
+        "p50_ms": 6.641,
+        "p95_ms": 8.416
+      }
+    },
+    "a_224_int8": {
+      "1_thread": {
+        "media_ms": 8.61,
+        "p50_ms": 8.627,
+        "p95_ms": 8.744
+      },
+      "4_threads": {
+        "media_ms": 5.629,
+        "p50_ms": 5.473,
+        "p95_ms": 6.493
+      }
+    },
+    "a_224x320": {
+      "1_thread": {
+        "media_ms": 24.774,
+        "p50_ms": 24.726,
+        "p95_ms": 25.045
+      },
+      "4_threads": {
+        "media_ms": 9.266,
+        "p50_ms": 9.028,
+        "p95_ms": 10.92
+      }
+    },
+    "a_224x320_int8": {
+      "1_thread": {
+        "media_ms": 11.41,
+        "p50_ms": 11.362,
+        "p95_ms": 11.653
+      },
+      "4_threads": {
+        "media_ms": 7.341,
+        "p50_ms": 6.949,
+        "p95_ms": 8.62
+      }
+    },
+    "a_256": {
+      "1_thread": {
+        "media_ms": 22.925,
+        "p50_ms": 22.904,
+        "p95_ms": 23.184
+      },
+      "4_threads": {
+        "media_ms": 8.856,
+        "p50_ms": 8.495,
+        "p95_ms": 11.077
+      }
+    },
+    "a_256_int8": {
+      "1_thread": {
+        "media_ms": 10.437,
+        "p50_ms": 10.372,
+        "p95_ms": 10.703
+      },
+      "4_threads": {
+        "media_ms": 6.879,
+        "p50_ms": 6.596,
+        "p95_ms": 8.006
+      }
+    },
+    "a_320": {
+      "1_thread": {
+        "media_ms": 35.549,
+        "p50_ms": 35.525,
+        "p95_ms": 35.811
+      },
+      "4_threads": {
+        "media_ms": 12.528,
+        "p50_ms": 12.413,
+        "p95_ms": 13.575
+      }
+    },
+    "a_320_int8": {
+      "1_thread": {
+        "media_ms": 17.251,
+        "p50_ms": 17.254,
+        "p95_ms": 17.426
+      },
+      "4_threads": {
+        "media_ms": 9.395,
+        "p50_ms": 9.09,
+        "p95_ms": 11.467
+      }
+    },
+    "a_320_split": {
+      "1_thread": {
+        "media_ms": 34.007,
+        "p50_ms": 33.869,
+        "p95_ms": 34.559
+      },
+      "4_threads": {
+        "media_ms": 10.838,
+        "p50_ms": 10.706,
+        "p95_ms": 11.388
+      }
+    },
+    "a_320_split_int8full": {
+      "1_thread": {
+        "media_ms": 12.491,
+        "p50_ms": 12.455,
+        "p95_ms": 12.623
+      },
+      "4_threads": {
+        "media_ms": 6.16,
+        "p50_ms": 5.852,
+        "p95_ms": 7.132
+      }
+    },
+    "a_512": {
+      "1_thread": {
+        "media_ms": 91.549,
+        "p50_ms": 91.334,
+        "p95_ms": 92.906
+      },
+      "4_threads": {
+        "media_ms": 28.834,
+        "p50_ms": 28.79,
+        "p95_ms": 29.105
+      }
+    },
+    "a_512_int8": {
+      "1_thread": {
+        "media_ms": 45.226,
+        "p50_ms": 45.153,
+        "p95_ms": 45.844
+      },
+      "4_threads": {
+        "media_ms": 20.529,
+        "p50_ms": 20.504,
+        "p95_ms": 20.87
+      }
+    },
+    "a_640": {
+      "1_thread": {
+        "media_ms": 144.172,
+        "p50_ms": 144.083,
+        "p95_ms": 144.722
+      },
+      "4_threads": {
+        "media_ms": 44.031,
+        "p50_ms": 44.037,
+        "p95_ms": 44.417
+      }
+    },
+    "a_640_int8": {
+      "1_thread": {
+        "media_ms": 74.782,
+        "p50_ms": 74.685,
+        "p95_ms": 75.602
+      },
+      "4_threads": {
+        "media_ms": 31.615,
+        "p50_ms": 31.495,
+        "p95_ms": 32.502
+      }
+    },
+    "a_640_split": {
+      "1_thread": {
+        "media_ms": 137.078,
+        "p50_ms": 136.988,
+        "p95_ms": 137.611
+      },
+      "4_threads": {
+        "media_ms": 38.042,
+        "p50_ms": 38.007,
+        "p95_ms": 38.34
+      }
+    },
+    "a_640_split_int8full": {
+      "1_thread": {
+        "media_ms": 50.222,
+        "p50_ms": 50.203,
+        "p95_ms": 50.473
+      },
+      "4_threads": {
+        "media_ms": 18.29,
+        "p50_ms": 18.291,
+        "p95_ms": 18.516
+      }
+    },
+    "b_192": {
+      "1_thread": {
+        "media_ms": 13.111,
+        "p50_ms": 13.112,
+        "p95_ms": 13.267
+      },
+      "4_threads": {
+        "media_ms": 5.495,
+        "p50_ms": 5.173,
+        "p95_ms": 6.559
+      }
+    },
+    "b_192_int8": {
+      "1_thread": {
+        "media_ms": 5.903,
+        "p50_ms": 5.898,
+        "p95_ms": 5.956
+      },
+      "4_threads": {
+        "media_ms": 4.509,
+        "p50_ms": 4.586,
+        "p95_ms": 4.892
+      }
+    },
+    "b_224x320": {
+      "1_thread": {
+        "media_ms": 24.787,
+        "p50_ms": 24.714,
+        "p95_ms": 24.97
+      },
+      "4_threads": {
+        "media_ms": 9.657,
+        "p50_ms": 9.215,
+        "p95_ms": 11.499
+      }
+    },
+    "b_224x320_int8": {
+      "1_thread": {
+        "media_ms": 11.362,
+        "p50_ms": 11.334,
+        "p95_ms": 11.536
+      },
+      "4_threads": {
+        "media_ms": 7.432,
+        "p50_ms": 6.945,
+        "p95_ms": 8.763
+      }
+    },
+    "b_320": {
+      "1_thread": {
+        "media_ms": 35.424,
+        "p50_ms": 35.351,
+        "p95_ms": 35.799
+      },
+      "4_threads": {
+        "media_ms": 12.511,
+        "p50_ms": 12.355,
+        "p95_ms": 13.675
+      }
+    },
+    "b_320_int8": {
+      "1_thread": {
+        "media_ms": 16.553,
+        "p50_ms": 16.507,
+        "p95_ms": 16.926
+      },
+      "4_threads": {
+        "media_ms": 9.317,
+        "p50_ms": 9.023,
+        "p95_ms": 11.209
+      }
+    },
+    "b_320_split": {
+      "1_thread": {
+        "media_ms": 33.818,
+        "p50_ms": 33.769,
+        "p95_ms": 34.047
+      },
+      "4_threads": {
+        "media_ms": 10.76,
+        "p50_ms": 10.667,
+        "p95_ms": 10.992
+      }
+    },
+    "b_320_split_int8full": {
+      "1_thread": {
+        "media_ms": 12.488,
+        "p50_ms": 12.408,
+        "p95_ms": 12.541
+      },
+      "4_threads": {
+        "media_ms": 4.524,
+        "p50_ms": 3.184,
+        "p95_ms": 7.036
+      }
+    },
+    "b_416": {
+      "1_thread": {
+        "media_ms": 52.029,
+        "p50_ms": 60.012,
+        "p95_ms": 60.539
+      },
+      "4_threads": {
+        "media_ms": 20.151,
+        "p50_ms": 20.138,
+        "p95_ms": 20.588
+      }
+    },
+    "b_416_int8": {
+      "1_thread": {
+        "media_ms": 29.058,
+        "p50_ms": 29.058,
+        "p95_ms": 29.566
+      },
+      "4_threads": {
+        "media_ms": 14.605,
+        "p50_ms": 14.542,
+        "p95_ms": 15.005
+      }
+    },
+    "b_416_split": {
+      "1_thread": {
+        "media_ms": 57.048,
+        "p50_ms": 57.002,
+        "p95_ms": 57.324
+      },
+      "4_threads": {
+        "media_ms": 17.53,
+        "p50_ms": 17.509,
+        "p95_ms": 17.743
+      }
+    },
+    "b_416_split_int8full": {
+      "1_thread": {
+        "media_ms": 21.098,
+        "p50_ms": 21.031,
+        "p95_ms": 21.541
+      },
+      "4_threads": {
+        "media_ms": 8.801,
+        "p50_ms": 8.616,
+        "p95_ms": 10.194
+      }
+    },
+    "classificador_mnv2": {
+      "1_thread": {
+        "media_ms": 3.595,
+        "p50_ms": 3.585,
+        "p95_ms": 3.636
+      },
+      "4_threads": {
+        "media_ms": 1.639,
+        "p50_ms": 1.576,
+        "p95_ms": 2.014
+      }
+    },
+    "classificador_mnv2_int8": {
+      "1_thread": {
+        "media_ms": 1.691,
+        "p50_ms": 1.689,
+        "p95_ms": 1.705
+      },
+      "4_threads": {
+        "media_ms": 1.197,
+        "p50_ms": 1.159,
+        "p95_ms": 1.372
+      }
+    },
+    "classificador_shufflenet": {
+      "1_thread": {
+        "media_ms": 0.732,
+        "p50_ms": 0.732,
+        "p95_ms": 0.741
+      },
+      "4_threads": {
+        "media_ms": 0.977,
+        "p50_ms": 0.974,
+        "p95_ms": 1.01
+      }
+    },
+    "classificador_shufflenet_int8": {
+      "1_thread": {
+        "media_ms": 0.736,
+        "p50_ms": 0.736,
+        "p95_ms": 0.745
+      },
+      "4_threads": {
+        "media_ms": 1.304,
+        "p50_ms": 1.305,
+        "p95_ms": 1.336
+      }
+    }
+  },
+  "gflops": {
+    "a_640": 8.085,
+    "a_512": 5.174,
+    "a_320": 2.021,
+    "a_224x320": 1.415,
+    "a_256": 1.294,
+    "a_224": 0.99,
+    "a_192": 0.728,
+    "b_416": 3.415,
+    "b_320": 2.021,
+    "b_224x320": 1.414,
+    "b_192": 0.727,
+    "classificador_mnv2_128": 0.213,
+    "classificador_shufflenet_128": 0.0284
+  }
+}

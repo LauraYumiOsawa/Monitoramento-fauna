@@ -1,0 +1,31 @@
+# Gerado por versoes/gerador/gerar_versoes.py a partir de versoes/matriz.yaml e versoes/gerador/especificacoes.yaml. Edite as entradas e regenere.
+# Limiares do Modelo B (config/modelo_b/runtime.yaml) ajustados para a rajada da armadilha:
+# com 8 quadros, classify_every 5 e min_votes 4 nunca emitiriam um avistamento.
+detector_confidence: 0.3
+detector_iou: 0.4
+detector_input: 416
+classifier_input: 128
+crop_margin: 0.12
+max_crops_per_frame: 3
+max_detections: 20
+# Rajada curta: classificar o recorte em todo quadro (a espécie do indivíduo não muda,
+# mas aqui há poucos quadros para votar).
+classify_every: 1
+tracker:
+  max_age: 10
+  min_hits: 2
+  iou_match: 0.30
+  low_score: 0.15
+  max_tracks: 16
+# 3 votos e 65% do peso: ainda impede que 2 votos contra 1 decidam a espécie.
+min_votes: 3
+min_vote_share: 0.65
+min_species_confidence: 0.50
+reject_unknown: true
+frame_stride: 1
+save_evidence: false
+output_dir: ../dados
+database: ../dados/sightings_b.sqlite3
+providers:
+  - CPUExecutionProvider
+intra_op_threads: 0

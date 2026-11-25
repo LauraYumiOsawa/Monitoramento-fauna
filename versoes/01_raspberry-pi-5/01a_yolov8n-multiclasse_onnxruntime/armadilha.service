@@ -1,0 +1,20 @@
+# Serviço systemd da versão 01a (Raspberry Pi 5 · YOLOv8n multiclasse (Modelo A) · ONNX Runtime (CPU, FP32)) — arquitetura de energia A.
+# Instalação (no dispositivo, com o pacote em /opt/armadilha/01a):
+#   sudo cp armadilha.service /etc/systemd/system/armadilha-01a.service
+#   sudo systemctl daemon-reload && sudo systemctl enable --now armadilha-01a
+[Unit]
+Description=Armadilha fotográfica com IA local — versão 01a
+After=multi-user.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/opt/armadilha/01a
+ExecStart=/opt/armadilha/01a/executar.sh trap
+Restart=on-failure
+RestartSec=10
+# A câmera e o GPIO exigem os grupos video e gpio.
+SupplementaryGroups=video gpio
+
+[Install]
+WantedBy=multi-user.target

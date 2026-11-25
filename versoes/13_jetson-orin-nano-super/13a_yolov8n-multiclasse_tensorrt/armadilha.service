@@ -1,0 +1,20 @@
+# Serviço systemd da versão 13a (NVIDIA Jetson Orin Nano Super · YOLOv8n multiclasse (Modelo A) · ONNX Runtime GPU + TensorRT EP (FP16)) — arquitetura de energia A.
+# Instalação (no dispositivo, com o pacote em /opt/armadilha/13a):
+#   sudo cp armadilha.service /etc/systemd/system/armadilha-13a.service
+#   sudo systemctl daemon-reload && sudo systemctl enable --now armadilha-13a
+[Unit]
+Description=Armadilha fotográfica com IA local — versão 13a
+After=multi-user.target
+
+[Service]
+Type=simple
+User=jetson
+WorkingDirectory=/opt/armadilha/13a
+ExecStart=/opt/armadilha/13a/executar.sh trap
+Restart=on-failure
+RestartSec=10
+# A câmera e o GPIO exigem os grupos video e gpio.
+SupplementaryGroups=video gpio
+
+[Install]
+WantedBy=multi-user.target

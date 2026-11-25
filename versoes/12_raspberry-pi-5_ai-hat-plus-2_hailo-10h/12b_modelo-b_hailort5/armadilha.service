@@ -1,0 +1,20 @@
+# Serviço systemd da versão 12b (Raspberry Pi 5 + AI HAT+ 2 (Hailo-10H) · Modelo B — YOLOv8n presença (416) + MobileNetV2 (128) · HailoRT 5 (detector) + ONNX Runtime (classificador)) — arquitetura de energia A.
+# Instalação (no dispositivo, com o pacote em /opt/armadilha/12b):
+#   sudo cp armadilha.service /etc/systemd/system/armadilha-12b.service
+#   sudo systemctl daemon-reload && sudo systemctl enable --now armadilha-12b
+[Unit]
+Description=Armadilha fotográfica com IA local — versão 12b
+After=multi-user.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/opt/armadilha/12b
+ExecStart=/opt/armadilha/12b/executar.sh trap
+Restart=on-failure
+RestartSec=10
+# A câmera e o GPIO exigem os grupos video e gpio.
+SupplementaryGroups=video gpio
+
+[Install]
+WantedBy=multi-user.target

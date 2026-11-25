@@ -1,0 +1,267 @@
+# Matriz de cruzamento hardware × software/modelo — fonte única das versões.
+#
+# Lida por gerador/gerar_versoes.py, que cria uma pasta por cruzamento com veredito
+# "gerar" e escreve MATRIZ_COMPATIBILIDADE.md com todos os cruzamentos, inclusive os que
+# não fazem sentido (com o motivo). Números entre colchetes são as referências da
+# pesquisa teórica (Pesquisa_Teorica_Visao_Computacional_Embarcada, 20/10/2026).
+
+hardware:
+  rpi5:
+    nome: Raspberry Pi 5
+    pasta: 01_raspberry-pi-5
+    resumo: "BCM2712, 4× Cortex-A76 a 2,4 GHz, 4/8 GB; conectores de câmera (CSI) e PCIe [12]"
+    papel: "Referência de sistema Linux flexível (arquitetura de referência da pesquisa)"
+    camera: "Camera Module 3 NoIR (IMX708, 12 MP, sem filtro IR) + iluminador IR externo [26]"
+  rpi5_hailo8l:
+    nome: Raspberry Pi 5 + AI HAT+ 13 TOPS (Hailo-8L)
+    pasta: 02_raspberry-pi-5_ai-hat-plus_hailo-8l
+    resumo: "Acelerador PCIe Hailo-8L, 13 TOPS [14]; hospedeiro Pi 5 entra no custo e na energia"
+    papel: "IA em acelerador PCIe (perfil 'Visão acelerada em Linux')"
+    camera: "Camera Module 3 NoIR [26]"
+  rpi5_hailo8:
+    nome: Raspberry Pi 5 + AI HAT+ 26 TOPS (Hailo-8)
+    pasta: 03_raspberry-pi-5_ai-hat-plus_hailo-8
+    resumo: "Acelerador PCIe Hailo-8, 26 TOPS [14]"
+    papel: "IA em acelerador PCIe (perfil 'Visão acelerada em Linux')"
+    camera: "Camera Module 3 NoIR [26]"
+  rpi5_imx500:
+    nome: Raspberry Pi 5 + AI Camera (IMX500)
+    pasta: 04_raspberry-pi-5_ai-camera-imx500
+    resumo: "Sensor Sony IMX500 de 12,3 MP com processamento neural no módulo [16]"
+    papel: "IA no sensor versus IA no processador; não se presume comportamento NoIR [16]"
+    camera: "A própria AI Camera (foco manual, com filtro IR: noturno depende de luz visível)"
+  pizero2w:
+    nome: Raspberry Pi Zero 2 W
+    pasta: 05_raspberry-pi-zero-2-w
+    resumo: "4× Cortex-A53 a 1 GHz, 512 MB de RAM [13]"
+    papel: "Contraponto de capacidade e preço de placa; memória limita modelos [13]"
+    camera: "Camera Module 3 NoIR com cabo para Zero [26]"
+  maixcam:
+    nome: Sipeed MaixCAM
+    pasta: 06_sipeed-maixcam
+    resumo: "SoC SG2002 com NPU INT8; ecossistemas MaixPy e MaixCDK [17]"
+    papel: "Câmera com ambiente próprio; exige fluxo de conversão próprio (cvimodel) [17]"
+    camera: "Câmera do kit (GC4653); trocar por módulo sem filtro IR para uso noturno"
+  grove_v2:
+    nome: Seeed Grove Vision AI Module V2
+    pasta: 07_grove-vision-ai-v2
+    resumo: "WiseEye2 HX6538: 2× Cortex-M55 + Ethos-U55; câmera CSI separada [18]"
+    papel: "Exemplo TinyML com aceleração; câmera, controlador e firmware compõem o sistema [18]"
+    camera: "OV5647 (CSI) — existe variante sem filtro IR"
+  orangepi5:
+    nome: Orange Pi 5
+    pasta: 08_orange-pi-5
+    resumo: "RK3588S, 4× Cortex-A76 + 4× Cortex-A55; NPU anunciada de 6 TOPS [21]"
+    papel: "Contraponto com NPU no SoC; fluxo RKNN próprio de conversão e execução [22]"
+    camera: "Câmera USB/UVC ou módulo MIPI (OV13850/OV13855) via GStreamer"
+  esp32s3eye:
+    nome: Espressif ESP32-S3-EYE
+    pasta: 09_esp32-s3-eye
+    resumo: "ESP32-S3 com câmera OV2640 de 2 MP e microSD [19]; sono profundo documentado [20]"
+    papel: "Referência de microcontrolador com câmera; 'porteiro' da arquitetura C"
+    camera: "OV2640 integrada (até 1600 × 1200) [19]"
+  luckfox:
+    nome: Luckfox Pico (RV1106)
+    pasta: 10_luckfox-pico-rv1106
+    resumo: "Família RV1103/RV1106 com CPU, ISP e NPU; variantes não equivalentes [24]"
+    papel: "Linux + NPU em baixo consumo; exige caracterizar o modelo exato (aqui RV1106G3) [24]"
+    camera: "SC3336 (MIPI) da Luckfox"
+  nicla:
+    nome: Arduino Nicla Vision
+    pasta: 11_arduino-nicla-vision
+    resumo: "Placa de visão com câmera e recursos integrados para aplicações embarcadas [25]"
+    papel: "Alternativa TinyML; não confundir com câmeras OpenMV de outras gerações [25]"
+    camera: "GC2145 integrada (2 MP)"
+  rpi5_hailo10h:
+    nome: Raspberry Pi 5 + AI HAT+ 2 (Hailo-10H)
+    pasta: 12_raspberry-pi-5_ai-hat-plus-2_hailo-10h
+    resumo: "Hailo-10H, 40 TOPS em INT4 e 8 GB no módulo; visão comparável ao HAT+ de 26 TOPS [15]"
+    papel: "Sem prioridade especial para detecção de fauna; 40 TOPS INT4 ≠ vantagem proporcional [15]"
+    camera: "Camera Module 3 NoIR [26]"
+  jetson:
+    nome: NVIDIA Jetson Orin Nano Super
+    pasta: 13_jetson-orin-nano-super
+    resumo: "Até 67 TOPS e modos de potência de 7 a 25 W [23]"
+    papel: "Teto de desempenho/estação base; modos de potência não são autonomia de armadilha [23]"
+    camera: "IMX219 NoIR (CSI) via nvarguscamerasrc"
+  coral_openmv:
+    nome: Coral USB e OpenMV
+    pasta: null
+    resumo: "Alternativas genéricas do esqueleto, mantidas só como contexto [P0]"
+    papel: "Fora dos rankings: sem modelo, suporte e custo homogêneos nesta revisão"
+    camera: "—"
+
+softwares:
+  yolov8n:
+    nome: "YOLOv8n multiclasse (Modelo A)"
+    camada: "Detector de espécies-alvo"
+    resumo: "Referência da pesquisa: entradas 640 e 512; 3 classes (anta, tamanduá, lobo) [P1; 5]"
+  modelo_b:
+    nome: "Modelo B — YOLOv8n presença (416) + MobileNetV2 (128)"
+    camada: "Detecção + classificação hierárquica"
+    resumo: >-
+      Implementação embarcada da separação detectar/identificar (QP4) [3; 7; 8]: detector de
+      uma classe, classificador com classe 'desconhecido', rastreamento e votação
+      (docs/MODELO_B.md)
+  megadetector_speciesnet:
+    nome: "MegaDetector + SpeciesNet"
+    camada: "Detecção ampla + classificação de espécies (referência)"
+    resumo: "MegaDetector detecta animal/pessoa/veículo [7]; SpeciesNet classifica com decisão hierárquica [8]"
+  tinyml:
+    nome: "TinyML (SDK do fabricante)"
+    camada: "Modelos pequenos em microcontrolador"
+    resumo: "SDKs do Grove (SSCMA), ESP32-S3 (ESP-DL) e Nicla (OpenMV) [18–20; 25]"
+  onnxruntime:
+    nome: "ONNX + ONNX Runtime"
+    camada: "Formato e runtime"
+    resumo: "ONNX representa o modelo; o runtime executa [6]"
+  conversao_npu:
+    nome: "Conversão para NPU (RKNN-Toolkit2, Hailo DFC/HEF, TPU-MLIR, MCT/IMX500, Vela)"
+    camada: "Compilação para acelerador"
+    resumo: "Operadores, precisão e artefato compilado exigidos por cada acelerador [22; 39]"
+  picamera2:
+    nome: "Picamera2"
+    camada: "Captura"
+    resumo: "Ligação entre evento, configuração da câmera, imagem e armazenamento [26; 30]"
+  camtrap_dp:
+    nome: "Camtrap DP"
+    camada: "Organização dos registros"
+    resumo: "Formato aberto para instalações, mídias e observações [11]"
+  bases:
+    nome: "LILA BC / WCS Camera Traps"
+    camada: "Bases de imagens"
+    resumo: "Representatividade, rótulos, domínio e licenças; uso offline [9; 10]"
+  complementares:
+    nome: "DeepFaune, Zamba, Timelapse, Wildlife Insights, AddaxAI"
+    camada: "Ferramentas complementares"
+    resumo: "Constavam do esqueleto; a análise principal não depende delas [P0; 7]"
+
+# Veredito: gerar | condicional (faz sentido com ressalva, não gerado) | nao (não faz sentido)
+cruzamentos:
+  # ---------------------------------------------------------------- Raspberry Pi 5
+  - {hardware: rpi5, software: yolov8n, veredito: gerar, id: 01a, familia: ort,
+     pasta: 01a_yolov8n-multiclasse_onnxruntime, runtime: "ONNX Runtime (CPU, FP32)",
+     justificativa: "Configuração de referência da pesquisa: YOLOv8n em ONNX executado pelo ONNX Runtime no Pi 5 [P1; 5; 6]. O Ultralytics publica benchmark ONNX no Pi 5 [38]."}
+  - {hardware: rpi5, software: modelo_b, veredito: gerar, id: 01b, familia: ort,
+     pasta: 01b_modelo-b_onnxruntime, runtime: "ONNX Runtime (CPU, FP32)",
+     justificativa: "Mesma placa, pipeline em dois estágios: separa presença de espécie (QP4) e permite 'desconhecido'/'inconclusivo' [3; 7; 8]. Medido no projeto: maior F1 entre os modelos próprios."}
+  - {hardware: rpi5, software: megadetector_speciesnet, veredito: gerar, id: 01c, familia: lote,
+     pasta: 01c_megadetector-speciesnet_lote, runtime: "PyTorch CPU, em lote (arquitetura C)",
+     justificativa: "Modelos grandes demais para tempo real, mas viáveis em lote no Pi 5 de 8 GB: classificação posterior das fotos de um subsistema de captura (arquitetura C) [4; 7; 8; 30]."}
+  - {hardware: rpi5, software: tinyml, veredito: nao,
+     justificativa: "Os SDKs TinyML visam microcontroladores; no Pi 5 o mesmo modelo roda sem as restrições de memória que justificam TinyML."}
+  # ---------------------------------------------------------------- Pi 5 + Hailo-8L
+  - {hardware: rpi5_hailo8l, software: yolov8n, veredito: gerar, id: 02a, familia: hailo,
+     pasta: 02a_yolov8n-multiclasse_hailort, runtime: "HailoRT (HEF hailo8l, INT8, NMS no chip)",
+     justificativa: "YOLOv8n é arquitetura suportada pelo fluxo ONNX → otimização → HEF [39]; a NPU tira a convolução da CPU (QP3) [14]."}
+  - {hardware: rpi5_hailo8l, software: modelo_b, veredito: gerar, id: 02b, familia: hailo,
+     pasta: 02b_modelo-b_hailort, runtime: "HailoRT (detector HEF) + ONNX Runtime (classificador na CPU)",
+     justificativa: "Detector de presença no Hailo; o classificador roda só nos recortes (~0,19 por quadro medido no projeto), barato na CPU do Pi 5."}
+  - {hardware: rpi5_hailo8l, software: megadetector_speciesnet, veredito: condicional,
+     justificativa: "Sem HEF documentado para MegaDetector/SpeciesNet; compilar YOLOv5x6 a 1280 px e EfficientNetV2 no DFC exigiria validação própria. O hospedeiro Pi 5 pode rodar a versão 01c em lote."}
+  # ---------------------------------------------------------------- Pi 5 + Hailo-8
+  - {hardware: rpi5_hailo8, software: yolov8n, veredito: gerar, id: 03a, familia: hailo,
+     pasta: 03a_yolov8n-multiclasse_hailort, runtime: "HailoRT (HEF hailo8, INT8, NMS no chip)",
+     justificativa: "Mesmo fluxo da 02a para o Hailo-8 (26 TOPS) [14; 39]; compara capacidade declarada sem converter TOPS em FPS."}
+  - {hardware: rpi5_hailo8, software: modelo_b, veredito: gerar, id: 03b, familia: hailo,
+     pasta: 03b_modelo-b_hailort, runtime: "HailoRT (detector HEF) + ONNX Runtime (classificador)",
+     justificativa: "Como 02b, compilado para hailo8."}
+  - {hardware: rpi5_hailo8, software: megadetector_speciesnet, veredito: condicional,
+     justificativa: "Como no Hailo-8L: possível em tese, sem artefato documentado nem validação."}
+  # ---------------------------------------------------------------- Pi 5 + AI Camera
+  - {hardware: rpi5_imx500, software: yolov8n, veredito: gerar, id: 04a, familia: imx500,
+     pasta: 04a_yolov8n-multiclasse_imx500, runtime: "IMX500 (rede no sensor, INT8) via Picamera2",
+     justificativa: "O Ultralytics exporta YOLOv8n para o IMX500; a inferência sai do processador hospedeiro [16]. Compara IA no sensor com IA no processador."}
+  - {hardware: rpi5_imx500, software: modelo_b, veredito: gerar, id: 04b, familia: imx500,
+     pasta: 04b_modelo-b_imx500, runtime: "IMX500 (detector de presença) + ONNX Runtime (classificador no Pi 5)",
+     justificativa: "Divisão natural: o sensor localiza o animal; a CPU classifica o recorte em alta resolução do mesmo quadro."}
+  - {hardware: rpi5_imx500, software: megadetector_speciesnet, veredito: nao,
+     justificativa: "MegaDetector e SpeciesNet excedem em muito a memória da rede no sensor do IMX500."}
+  # ---------------------------------------------------------------- Pi Zero 2 W
+  - {hardware: pizero2w, software: yolov8n, veredito: gerar, id: 05a, familia: ort,
+     pasta: 05a_yolov8n-512-int8_onnxruntime, runtime: "ONNX Runtime (CPU, INT8, entrada 512)",
+     justificativa: "Cabe em 512 MB com Raspberry Pi OS Lite; segundos por quadro são aceitáveis para fotos acionadas por PIR. Entrada 512 é a alternativa leve da pesquisa [P1; 13]."}
+  - {hardware: pizero2w, software: modelo_b, veredito: gerar, id: 05b, familia: ort,
+     pasta: 05b_modelo-b-int8_onnxruntime, runtime: "ONNX Runtime (CPU, INT8)",
+     justificativa: "Modelo B INT8 (5,7 MB) foi a configuração recomendada pelo projeto para hardware limitado; MobileNetV2 não perde acurácia em INT8."}
+  - {hardware: pizero2w, software: megadetector_speciesnet, veredito: nao,
+     justificativa: "512 MB de RAM não comportam os pesos do MegaDetector e do SpeciesNet com o sistema [13]."}
+  # ---------------------------------------------------------------- MaixCAM
+  - {hardware: maixcam, software: yolov8n, veredito: gerar, id: 06a, familia: maixpy,
+     pasta: 06a_yolov8n-multiclasse_maixpy, runtime: "MaixPy nn.YOLOv8 (cvimodel INT8, 224×320)",
+     justificativa: "MaixPy executa YOLOv8 convertido por TPU-MLIR; o fluxo de conversão é verificado antes de assumir execução [17]."}
+  - {hardware: maixcam, software: modelo_b, veredito: gerar, id: 06b, familia: maixpy,
+     pasta: 06b_modelo-b_maixpy, runtime: "MaixPy nn.YOLOv8 + nn.Classifier (cvimodel INT8)",
+     justificativa: "Os dois estágios cabem na NPU; INT8 do MobileNetV2 medido sem perda no projeto."}
+  - {hardware: maixcam, software: megadetector_speciesnet, veredito: nao,
+     justificativa: "Memória e NPU incompatíveis com MegaDetector (1280 px) e SpeciesNet."}
+  # ---------------------------------------------------------------- Grove Vision AI V2
+  - {hardware: grove_v2, software: yolov8n, veredito: gerar, id: 07a, familia: grove,
+     pasta: 07a_yolov8n-reduzido_sscma, runtime: "TFLite INT8 + Vela (Ethos-U55), firmware SSCMA; hospedeiro XIAO ESP32S3",
+     justificativa: "Detector YOLOv8n em resolução reduzida é o caso de uso documentado do módulo; câmera, controlador e firmware entram no sistema [18]."}
+  - {hardware: grove_v2, software: modelo_b, veredito: condicional,
+     justificativa: "O firmware executa um modelo por vez; o classificador teria de rodar no hospedeiro sobre o JPEG reduzido. Não gerado."}
+  - {hardware: grove_v2, software: tinyml, veredito: gerar, id: 07a, familia: grove, mesma_versao: true,
+     justificativa: "O SDK TinyML (SSCMA) é o próprio runtime da versão 07a."}
+  - {hardware: grove_v2, software: megadetector_speciesnet, veredito: nao,
+     justificativa: "Microcontrolador; ordens de grandeza abaixo da memória necessária."}
+  # ---------------------------------------------------------------- Orange Pi 5
+  - {hardware: orangepi5, software: yolov8n, veredito: gerar, id: 08a, familia: rknn,
+     pasta: 08a_yolov8n-multiclasse_rknn, runtime: "RKNN (NPU, INT8, cabeça dividida) + rknn-toolkit-lite2",
+     justificativa: "Contraponto com NPU no SoC; o fluxo RKNN tem conversão e execução próprias [21; 22]. INT8 exige cortar a cabeça (achado do projeto)."}
+  - {hardware: orangepi5, software: modelo_b, veredito: gerar, id: 08b, familia: rknn,
+     pasta: 08b_modelo-b_rknn, runtime: "RKNN (detector e classificador, INT8)",
+     justificativa: "Os dois estágios na NPU; CPU livre para rastreamento e registro."}
+  - {hardware: orangepi5, software: megadetector_speciesnet, veredito: gerar, id: 08c, familia: lote,
+     pasta: 08c_megadetector-speciesnet_lote, runtime: "PyTorch CPU (8 núcleos), em lote",
+     justificativa: "8/16 GB de RAM permitem a classificação de referência em lote, como na 01c."}
+  - {hardware: orangepi5, software: onnxruntime, veredito: gerar, id: 08a, familia: rknn, mesma_versao: true,
+     justificativa: "ONNX Runtime CPU fica como alternativa sem conversão nas versões 08a/08b (comparação CPU × NPU da QP3)."}
+  # ---------------------------------------------------------------- ESP32-S3-EYE
+  - {hardware: esp32s3eye, software: tinyml, veredito: gerar, id: 09a, familia: esp,
+     pasta: 09a_captura-independente_tinyml-esp-dl, runtime: "ESP-IDF + ESP-DL (MobileNetV2-128 INT8, opcional)",
+     justificativa: "Subsistema de captura da arquitetura C com sono profundo [19; 20]; a pré-classificação TinyML é opcional e não decide descarte."}
+  - {hardware: esp32s3eye, software: yolov8n, veredito: nao,
+     justificativa: "A pesquisa veda presumir YOLOv8n completo a 640 px sem documentação de implantação [19]; detecção fica para o processamento em lote."}
+  - {hardware: esp32s3eye, software: modelo_b, veredito: condicional,
+     justificativa: "Só o classificador (sobre o quadro inteiro) é plausível; o detector de presença ficaria em segundos por foto. Representado pela pré-classificação da 09a."}
+  - {hardware: esp32s3eye, software: megadetector_speciesnet, veredito: nao,
+     justificativa: "Microcontrolador; inviável. As fotos vão para a 01c/08c em lote."}
+  # ---------------------------------------------------------------- Luckfox Pico
+  - {hardware: luckfox, software: yolov8n, veredito: gerar, id: 10a, familia: luckfox,
+     pasta: 10a_yolov8n-320-int8_rknn-rv1106, runtime: "RKNN C API (RV1106, INT8, 320 px)",
+     justificativa: "A NPU do RV1106 executa INT8; o modelo exato (RV1106G3, 256 MB) é caracterizado antes de comparar [24]."}
+  - {hardware: luckfox, software: modelo_b, veredito: condicional,
+     justificativa: "Exigiria segundo contexto RKNN e portar rastreamento/votação para C; não gerado nesta revisão."}
+  - {hardware: luckfox, software: megadetector_speciesnet, veredito: nao,
+     justificativa: "Memória insuficiente."}
+  # ---------------------------------------------------------------- Nicla Vision
+  - {hardware: nicla, software: tinyml, veredito: gerar, id: 11a, familia: openmv,
+     pasta: 11a_classificador-tinyml_openmv, runtime: "OpenMV + TFLite Micro (ShuffleNetV2-x0.5 INT8)",
+     justificativa: "Alternativa TinyML [25]: classificação do quadro com modelo de 0,35 M parâmetros, acionada por movimento."}
+  - {hardware: nicla, software: yolov8n, veredito: nao,
+     justificativa: "YOLOv8n não cabe na memória da placa."}
+  - {hardware: nicla, software: modelo_b, veredito: nao,
+     justificativa: "Sem detector de presença viável; o classificador isolado é a versão 11a."}
+  # ---------------------------------------------------------------- Pi 5 + AI HAT+ 2
+  - {hardware: rpi5_hailo10h, software: yolov8n, veredito: gerar, id: 12a, familia: hailo,
+     pasta: 12a_yolov8n-multiclasse_hailort5, runtime: "HailoRT 5 (HEF hailo10h)",
+     justificativa: "Executa visão comparável ao HAT+ de 26 TOPS [15]; gerado para completar o cruzamento, sem prioridade especial."}
+  - {hardware: rpi5_hailo10h, software: modelo_b, veredito: gerar, id: 12b, familia: hailo,
+     pasta: 12b_modelo-b_hailort5, runtime: "HailoRT 5 (detector) + ONNX Runtime (classificador)",
+     justificativa: "Como 03b, compilado para hailo10h."}
+  - {hardware: rpi5_hailo10h, software: megadetector_speciesnet, veredito: condicional,
+     justificativa: "Os 8 GB no módulo não resolvem a falta de artefato compilado documentado."}
+  # ---------------------------------------------------------------- Jetson
+  - {hardware: jetson, software: yolov8n, veredito: gerar, id: 13a, familia: tensorrt,
+     pasta: 13a_yolov8n-multiclasse_tensorrt, runtime: "ONNX Runtime GPU + TensorRT EP (FP16)",
+     justificativa: "Teto de desempenho do mesmo modelo [23]."}
+  - {hardware: jetson, software: modelo_b, veredito: gerar, id: 13b, familia: tensorrt,
+     pasta: 13b_modelo-b_tensorrt, runtime: "ONNX Runtime GPU + TensorRT EP (FP16)",
+     justificativa: "Teto de desempenho do pipeline em dois estágios."}
+  - {hardware: jetson, software: megadetector_speciesnet, veredito: gerar, id: 13c, familia: lote,
+     pasta: 13c_megadetector-speciesnet_gpu, runtime: "PyTorch CUDA",
+     justificativa: "Único hardware do estudo em que a referência roda perto do tempo real; papel de estação base, não de armadilha a bateria [23]."}
+  # ---------------------------------------------------------------- Coral / OpenMV
+  - {hardware: coral_openmv, software: yolov8n, veredito: nao,
+     justificativa: "A pesquisa mantém Coral USB e OpenMV só como contexto, sem modelo, suporte e custo homogêneos [P0]."}

@@ -1,0 +1,58 @@
+# Gerado por versoes/gerador/gerar_versoes.py a partir de versoes/matriz.yaml e versoes/gerador/especificacoes.yaml. Edite as entradas e regenere.
+id: 03a
+nome: Raspberry Pi 5 + AI HAT+ 26 TOPS (Hailo-8) · YOLOv8n multiclasse (Modelo A) · HailoRT (HEF hailo8,
+  INT8, NMS no chip)
+hardware: rpi5_hailo8
+modelo: modelo-a
+arquitetura_energia: A
+detector:
+  runtime: hailo
+  arquivo: modelos/a_640_hailo8.hef
+  formato_saida: hailo_nms
+  confianca: 0.35
+  iou: 0.45
+  classes:
+    0: anta
+    1: tamandua_bandeira
+    2: lobo_guara
+captura:
+  tipo: picamera2
+  largura: 1536
+  altura: 864
+  fps: 10
+  posicao_lente: 0.33
+  manter_ligada: false
+gatilho:
+  tipo: gpiozero
+  pino: 17
+iluminacao_ir:
+  tipo: gpiozero
+  pino: 27
+  modo: auto
+  limiar_lux: 5
+  noite_horas:
+  - 18
+  - 6
+evento:
+  quadros: 8
+  intervalo_s: 0.15
+  pausa_s: 10
+  min_hits: 3
+armazenamento:
+  pasta: dados
+  registro: dados/camtrap.sqlite3
+  salvar_vazias: true
+  qualidade_jpeg: 90
+implantacao:
+  deployment_id: dep-03a
+  latitude: 0.0
+  longitude: 0.0
+  local: PREENCHER antes do campo
+  camera_id: 03a
+  altura_m: null
+  instalado_por: null
+energia:
+  desligar_ao_final: false
+artefatos:
+- destino: modelos/a_640.onnx
+  origem: models/animal_detector.onnx

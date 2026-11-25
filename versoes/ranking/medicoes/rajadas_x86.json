@@ -1,0 +1,362 @@
+{
+  "gerado_em": "2026-10-21T15:40:09.369101+00:00",
+  "aviso": "Proxy em x86_64; vídeos editados, não capturas de armadilha.",
+  "proxies": {
+    "a_640": {
+      "eventos": 90,
+      "quadros_por_evento": 8,
+      "desfechos": {
+        "vazio": 26,
+        "correto": 49,
+        "inconclusivo": 7,
+        "errado": 8
+      },
+      "por_video": {
+        "anta": {
+          "vazio": 9,
+          "correto": 19,
+          "inconclusivo": 2
+        },
+        "lobo_guara": {
+          "vazio": 9,
+          "correto": 15,
+          "errado": 5,
+          "inconclusivo": 1
+        },
+        "tamandua_bandeira": {
+          "vazio": 8,
+          "correto": 15,
+          "inconclusivo": 4,
+          "errado": 3
+        }
+      },
+      "acerto_entre_confirmados": 0.8596,
+      "taxa_erro_confirmado": 0.0889
+    },
+    "a_640_split_int8full": {
+      "eventos": 90,
+      "quadros_por_evento": 8,
+      "desfechos": {
+        "vazio": 25,
+        "correto": 49,
+        "inconclusivo": 7,
+        "errado": 9
+      },
+      "por_video": {
+        "anta": {
+          "vazio": 7,
+          "correto": 20,
+          "inconclusivo": 3
+        },
+        "lobo_guara": {
+          "vazio": 9,
+          "correto": 14,
+          "inconclusivo": 2,
+          "errado": 5
+        },
+        "tamandua_bandeira": {
+          "vazio": 9,
+          "correto": 15,
+          "errado": 4,
+          "inconclusivo": 2
+        }
+      },
+      "acerto_entre_confirmados": 0.8448,
+      "taxa_erro_confirmado": 0.1
+    },
+    "a_512_int8": {
+      "eventos": 90,
+      "quadros_por_evento": 8,
+      "desfechos": {
+        "errado": 7,
+        "inconclusivo": 13,
+        "vazio": 19,
+        "correto": 51
+      },
+      "por_video": {
+        "anta": {
+          "errado": 1,
+          "inconclusivo": 5,
+          "vazio": 6,
+          "correto": 18
+        },
+        "lobo_guara": {
+          "inconclusivo": 4,
+          "vazio": 6,
+          "correto": 16,
+          "errado": 4
+        },
+        "tamandua_bandeira": {
+          "correto": 17,
+          "vazio": 7,
+          "inconclusivo": 4,
+          "errado": 2
+        }
+      },
+      "acerto_entre_confirmados": 0.8793,
+      "taxa_erro_confirmado": 0.0778
+    },
+    "a_320_split_int8full": {
+      "eventos": 90,
+      "quadros_por_evento": 8,
+      "desfechos": {
+        "errado": 8,
+        "vazio": 24,
+        "correto": 49,
+        "inconclusivo": 9
+      },
+      "por_video": {
+        "anta": {
+          "errado": 1,
+          "vazio": 8,
+          "correto": 20,
+          "inconclusivo": 1
+        },
+        "lobo_guara": {
+          "inconclusivo": 2,
+          "vazio": 9,
+          "correto": 15,
+          "errado": 4
+        },
+        "tamandua_bandeira": {
+          "vazio": 7,
+          "inconclusivo": 6,
+          "correto": 14,
+          "errado": 3
+        }
+      },
+      "acerto_entre_confirmados": 0.8596,
+      "taxa_erro_confirmado": 0.0889
+    },
+    "a_224x320_int8": {
+      "eventos": 90,
+      "quadros_por_evento": 8,
+      "desfechos": {
+        "inconclusivo": 7,
+        "vazio": 22,
+        "correto": 51,
+        "errado": 10
+      },
+      "por_video": {
+        "anta": {
+          "inconclusivo": 3,
+          "vazio": 7,
+          "correto": 20
+        },
+        "lobo_guara": {
+          "inconclusivo": 2,
+          "vazio": 8,
+          "correto": 15,
+          "errado": 5
+        },
+        "tamandua_bandeira": {
+          "vazio": 7,
+          "correto": 16,
+          "errado": 5,
+          "inconclusivo": 2
+        }
+      },
+      "acerto_entre_confirmados": 0.8361,
+      "taxa_erro_confirmado": 0.1111
+    },
+    "a_256_int8": {
+      "eventos": 90,
+      "quadros_por_evento": 8,
+      "desfechos": {
+        "inconclusivo": 9,
+        "vazio": 36,
+        "correto": 31,
+        "errado": 14
+      },
+      "por_video": {
+        "anta": {
+          "inconclusivo": 4,
+          "vazio": 10,
+          "correto": 16
+        },
+        "lobo_guara": {
+          "vazio": 12,
+          "errado": 6,
+          "inconclusivo": 4,
+          "correto": 8
+        },
+        "tamandua_bandeira": {
+          "vazio": 14,
+          "correto": 7,
+          "inconclusivo": 1,
+          "errado": 8
+        }
+      },
+      "acerto_entre_confirmados": 0.6889,
+      "taxa_erro_confirmado": 0.1556
+    },
+    "b_416+mnv2": {
+      "eventos": 90,
+      "quadros_por_evento": 8,
+      "desfechos": {
+        "inconclusivo": 30,
+        "vazio": 8,
+        "correto": 52
+      },
+      "por_video": {
+        "anta": {
+          "inconclusivo": 10,
+          "vazio": 2,
+          "correto": 18
+        },
+        "lobo_guara": {
+          "inconclusivo": 10,
+          "vazio": 2,
+          "correto": 18
+        },
+        "tamandua_bandeira": {
+          "inconclusivo": 10,
+          "vazio": 4,
+          "correto": 16
+        }
+      },
+      "acerto_entre_confirmados": 1.0,
+      "taxa_erro_confirmado": 0.0
+    },
+    "b_416_int8+mnv2": {
+      "eventos": 90,
+      "quadros_por_evento": 8,
+      "desfechos": {
+        "inconclusivo": 30,
+        "vazio": 10,
+        "correto": 50
+      },
+      "por_video": {
+        "anta": {
+          "inconclusivo": 10,
+          "vazio": 3,
+          "correto": 17
+        },
+        "lobo_guara": {
+          "inconclusivo": 9,
+          "vazio": 3,
+          "correto": 18
+        },
+        "tamandua_bandeira": {
+          "inconclusivo": 11,
+          "vazio": 4,
+          "correto": 15
+        }
+      },
+      "acerto_entre_confirmados": 1.0,
+      "taxa_erro_confirmado": 0.0
+    },
+    "b_416_int8+mnv2_int8": {
+      "eventos": 90,
+      "quadros_por_evento": 8,
+      "desfechos": {
+        "inconclusivo": 30,
+        "vazio": 10,
+        "correto": 50
+      },
+      "por_video": {
+        "anta": {
+          "inconclusivo": 10,
+          "vazio": 3,
+          "correto": 17
+        },
+        "lobo_guara": {
+          "inconclusivo": 9,
+          "vazio": 3,
+          "correto": 18
+        },
+        "tamandua_bandeira": {
+          "inconclusivo": 11,
+          "vazio": 4,
+          "correto": 15
+        }
+      },
+      "acerto_entre_confirmados": 1.0,
+      "taxa_erro_confirmado": 0.0
+    },
+    "b_416_split_int8full+mnv2_int8": {
+      "eventos": 90,
+      "quadros_por_evento": 8,
+      "desfechos": {
+        "inconclusivo": 33,
+        "vazio": 8,
+        "correto": 49
+      },
+      "por_video": {
+        "anta": {
+          "inconclusivo": 10,
+          "vazio": 3,
+          "correto": 17
+        },
+        "lobo_guara": {
+          "inconclusivo": 11,
+          "vazio": 2,
+          "correto": 17
+        },
+        "tamandua_bandeira": {
+          "inconclusivo": 12,
+          "vazio": 3,
+          "correto": 15
+        }
+      },
+      "acerto_entre_confirmados": 1.0,
+      "taxa_erro_confirmado": 0.0
+    },
+    "b_416_split_int8full+mnv2": {
+      "eventos": 90,
+      "quadros_por_evento": 8,
+      "desfechos": {
+        "inconclusivo": 32,
+        "vazio": 8,
+        "correto": 50
+      },
+      "por_video": {
+        "anta": {
+          "inconclusivo": 10,
+          "vazio": 3,
+          "correto": 17
+        },
+        "lobo_guara": {
+          "inconclusivo": 10,
+          "vazio": 2,
+          "correto": 18
+        },
+        "tamandua_bandeira": {
+          "inconclusivo": 12,
+          "vazio": 3,
+          "correto": 15
+        }
+      },
+      "acerto_entre_confirmados": 1.0,
+      "taxa_erro_confirmado": 0.0
+    },
+    "b_224x320_int8+mnv2_int8": {
+      "eventos": 90,
+      "quadros_por_evento": 8,
+      "desfechos": {
+        "vazio": 16,
+        "correto": 47,
+        "inconclusivo": 27
+      },
+      "por_video": {
+        "anta": {
+          "vazio": 5,
+          "correto": 15,
+          "inconclusivo": 10
+        },
+        "lobo_guara": {
+          "vazio": 5,
+          "correto": 15,
+          "inconclusivo": 10
+        },
+        "tamandua_bandeira": {
+          "vazio": 6,
+          "correto": 17,
+          "inconclusivo": 7
+        }
+      },
+      "acerto_entre_confirmados": 1.0,
+      "taxa_erro_confirmado": 0.0
+    }
+  }
+}

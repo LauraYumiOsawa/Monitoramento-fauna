@@ -1,0 +1,20 @@
+# Mesmas regras do pyproject.toml do projeto, com os três pacotes como primeira parte.
+line-length = 100
+target-version = "py310"
+src = ["comum", "../src"]
+# Scripts que rodam em MicroPython/MaixPy (sintaxe e módulos próprios do dispositivo).
+extend-exclude = [
+    "gerador/plataformas/openmv/main.py", "gerador/plataformas/maixpy/app/main.py",
+    "06_*/*/app/main.py", "11_*/*/main.py",
+]
+
+[lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[lint.isort]
+known-first-party = ["animal_monitor", "animal_monitor_b", "animal_monitor_hw"]
+
+[lint.per-file-ignores]
+# Módulos de texto (README e relatório): frases longas em strings.
+"ranking/relatorio.py" = ["E501"]
+"gerador/secoes_familias.py" = ["E501"]
